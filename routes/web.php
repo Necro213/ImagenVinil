@@ -50,6 +50,12 @@ Route::prefix('admin')->group(function (){
     Route::get('/users',[
        'uses' => 'AdminController@getUsers'
     ]);
+
+    //--------------------------------------------POST--------------------------------------------//
+
+    Route::post('/dologin',[
+        'uses' => 'AdminController@doLogin'
+    ]);
 });
 
 

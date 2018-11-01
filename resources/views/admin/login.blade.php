@@ -29,6 +29,7 @@
             <h3 class="login-box-msg">Inicio de sesion panel administrativo</h3>
 
             <form id="loginform">
+                {{csrf_field()}}
                 <div class="row form-group">
                     <label for="user">Nombre de Usuario</label>
                     <input type="text" name="user" id="user" class="form-control" placeholder="Usuario">
@@ -40,7 +41,7 @@
             </form>
                 <!-- /.col -->
                 <div align="right">
-                    <button type="submit" class="btn btn-success">Iniciar Sesion</button>
+                    <button type="submit" id="sesion" class="btn btn-success">Iniciar Sesion</button>
                 </div>
                 <!-- /.col -->
 
@@ -53,19 +54,18 @@
 <!-- /.login-box -->
 
 <!-- jQuery -->
-<script src="{{asset('/plugins/jquery/jquery.min.js')}}"></script>
+<script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
 <!-- Bootstrap 4 -->
 <script src="{{asset('/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- iCheck -->
 <script src="{{asset('/plugins/iCheck/icheck.min.js')}}"></script>
-<script>
-    $(function () {
-        $('input').iCheck({
-            checkboxClass: 'icheckbox_square-blue',
-            radioClass   : 'iradio_square-blue',
-            increaseArea : '20%' // optional
-        })
-    })
-</script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.4/dist/sweetalert2.all.min.js"></script>
+
+<script src="{{asset('/js/admin/login.js')}}"></script>
+
 </body>
 </html>
