@@ -38,7 +38,6 @@ Route::get('/blog',[
 ]);
 
 Route::get('/about',[
-    'middleware' => 'sesion',
     'uses' => 'ClientesController@about',
     'as' => 'cliente.about'
 ]);
@@ -51,6 +50,12 @@ Route::prefix('admin')->group(function (){
 
     Route::get('/users',[
        'uses' => 'AdminController@getUsers'
+    ]);
+
+    Route::get('/',[
+        'middleware' => 'sesion',
+        'uses' => 'AdminController@IndexView',
+       'as' => 'admin.index'
     ]);
 
     //--------------------------------------------POST--------------------------------------------//

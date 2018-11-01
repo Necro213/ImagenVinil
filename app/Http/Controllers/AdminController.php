@@ -10,10 +10,16 @@ use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
+    //---------------------------------------------Views-------------------------------------------
     function LoginView(){
         return view('admin.login');
     }
 
+    function IndexView(Request $request){
+        return view('admin.index');
+    }
+
+    //--------------------------------------------Functions-----------------------------------------
     function doLogin(Request $request){
         try{
             $cookie = null;
@@ -42,4 +48,6 @@ class AdminController extends Controller
 
         return Response::json($user);
     }
+
+
 }
