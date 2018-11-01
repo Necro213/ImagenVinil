@@ -11,7 +11,12 @@ use Illuminate\Support\Facades\Hash;
 class AdminController extends Controller
 {
     //---------------------------------------------Views-------------------------------------------
-    function LoginView(){
+    function LoginView(Request $request){
+        
+        if($request->cookie('IEV-logged') != null){
+            return redirect('/admin');
+        }
+        
         return view('admin.login');
     }
 

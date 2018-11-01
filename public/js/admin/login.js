@@ -17,7 +17,7 @@ $(function () {
                     title: 'Bienvenido '+json.msg,
                     text: '',
                 }).then(function () {
-                    //window.location.replace(document.location.protocol+'//'+document.location.host+"/admin");
+                    window.location.replace(document.location.protocol+'//'+document.location.host+"/admin");
                 });
             }else{
                 swal({
