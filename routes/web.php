@@ -41,3 +41,15 @@ Route::get('/about',[
     'as' => 'cliente.about'
 ]);
 
+Route::prefix('admin')->group(function (){
+    Route::get('/login',[
+        'uses' => 'AdminController@LoginView',
+        'as' => 'admin.login'
+    ]);
+
+    Route::get('/users',[
+       'uses' => 'AdminController@getUsers'
+    ]);
+});
+
+
