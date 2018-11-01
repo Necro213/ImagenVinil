@@ -32,11 +32,13 @@ Route::get('/contact',[
 ]);
 
 Route::get('/blog',[
+
     'uses' => 'ClientesController@blog',
     'as' => 'cliente.blog'
 ]);
 
 Route::get('/about',[
+    'middleware' => 'sesion',
     'uses' => 'ClientesController@about',
     'as' => 'cliente.about'
 ]);
