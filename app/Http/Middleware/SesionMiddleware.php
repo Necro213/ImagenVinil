@@ -18,5 +18,7 @@ class SesionMiddleware
         if($request->cookie('IEV-logged') == null){
             return redirect('/admin/login');
         }
+
+        return $next($request);
     }
 }
