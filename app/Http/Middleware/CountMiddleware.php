@@ -34,7 +34,7 @@ class CountMiddleware
                 $v->fecha = $hoy;
                 $v->contador = 1;
 
-                $v->save;
+                $v->save();
             }else{
                 $visita->contador = $visita->contador+1;
 

@@ -15,33 +15,35 @@ Route::group(['middleware' => ['visitas']],function (){
         'uses' => 'ClientesController@index',
         'as' => 'cliente.index'
     ]);
+
+    Route::get('/services',[
+        'uses' => 'ClientesController@services',
+        'as' => 'cliente.services'
+    ]);
+
+    Route::get('/elements',[
+        'uses' => 'ClientesController@elements',
+        'as' => 'cliente.elements'
+    ]);
+
+    Route::get('/contact',[
+        'uses' => 'ClientesController@contact',
+        'as' => 'cliente.contact'
+    ]);
+
+    Route::get('/blog',[
+
+        'uses' => 'ClientesController@blog',
+        'as' => 'cliente.blog'
+    ]);
+
+    Route::get('/about',[
+        'uses' => 'ClientesController@about',
+        'as' => 'cliente.about'
+    ]);
+
 });
 
-Route::get('/services',[
-    'uses' => 'ClientesController@services',
-    'as' => 'cliente.services'
-]);
-
-Route::get('/elements',[
-    'uses' => 'ClientesController@elements',
-    'as' => 'cliente.elements'
-]);
-
-Route::get('/contact',[
-    'uses' => 'ClientesController@contact',
-    'as' => 'cliente.contact'
-]);
-
-Route::get('/blog',[
-
-    'uses' => 'ClientesController@blog',
-    'as' => 'cliente.blog'
-]);
-
-Route::get('/about',[
-    'uses' => 'ClientesController@about',
-    'as' => 'cliente.about'
-]);
 
 Route::prefix('admin')->group(function (){
     Route::get('/login',[
@@ -50,7 +52,9 @@ Route::prefix('admin')->group(function (){
     ]);
 
     Route::get('/users',[
-       'uses' => 'AdminController@getUsers'
+        'middleware' => 'sesion',
+        'uses' => 'AdminController@UsersView',
+        'as' => 'admin.users'
     ]);
 
     Route::get('/',[
@@ -58,12 +62,25 @@ Route::prefix('admin')->group(function (){
         'uses' => 'AdminController@IndexView',
        'as' => 'admin.index'
     ]);
+    //--------------------------------------------DATA--------------------------------------------//
+
+    Route::get('/users/get',[
+       'uses' => 'AdminController@getUsers'
+    ]);
 
     //--------------------------------------------POST--------------------------------------------//
 
     Route::post('/dologin',[
         'uses' => 'AdminController@doLogin'
     ]);
+
+    Route::post('/reguser',[
+       'uses' => 'AdminController@regUser'
+    ]);
+
+    //--------------------------------------------DELETE-----------------------------------------//
+
+    Route::delete('/delete/{apikey}',[
+        'uses' => 'AdminController@deleteUser'
+    ]);
 });
-
-

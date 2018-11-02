@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Hash;
+use Yajra\Datatables\Datatables;
 
 class AdminController extends Controller
 {
@@ -22,6 +23,22 @@ class AdminController extends Controller
 
     function IndexView(Request $request){
         return view('admin.index');
+    }
+
+    function UsersView(){
+        return view('admin.users');
+    }
+    //----------------------------------------------Data--------------------------------------------
+
+    function getUsers(){
+        try{
+            $users = User::all();
+
+
+            return Datatables::of(collect($users))->make(true);
+        }catch (Exception $e){
+            return Response::json($e->getMessage());
+        }
     }
 
     //--------------------------------------------Functions-----------------------------------------
@@ -47,12 +64,35 @@ class AdminController extends Controller
         return Response::json($respuesta);
     }
 
-    function getUsers(){
+    function regUser(Request $request){
+        try{
+            $user = new User;
 
-        $user = User::all();
+            $user->nombre = $request->nombre;
+            $user->apellidos = $request->apellidos;
+            $user->username = $request->username;
+            $user->password = bcrypt($request->pass);
+            $user->apikey = bcrypt($user->id);
 
-        return Response::json($user);
+            $user->save();
+
+            $respuesta = ["code" => 200, "msg" => 'registrado correctamente', "message" => "success"];
+        }catch (Exception $e) {
+            $respuesta = ["code" => 500, "msg" => $e->getMessage(), "message" => "error"];
+        }
+
+        return Response::json($respuesta);
     }
 
+    function deleteUser(Request $request, $apikey){
+        try{
+            User::where("apikey",'=', $apikey)->delete();
 
+            $respuesta = ["code" => 200, "msg" => 'Eliminado correctamente', "message" => "success"];
+        }catch (Exception $e){
+            $respuesta = ["code" => 500, "msg" => $e->getMessage(), "message" => "error"];
+        }
+
+        return Response::json($respuesta);
+    }
 }
