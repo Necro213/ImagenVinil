@@ -10,11 +10,12 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/',[
-    'uses' => 'ClientesController@index',
-    'as' => 'cliente.index'
-]);
+Route::group(['middleware' => ['visitas']],function (){
+    Route::get('/',[
+        'uses' => 'ClientesController@index',
+        'as' => 'cliente.index'
+    ]);
+});
 
 Route::get('/services',[
     'uses' => 'ClientesController@services',
