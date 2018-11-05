@@ -68,6 +68,19 @@ Route::prefix('admin')->group(function (){
         'uses' => 'AdminController@GaleriaView',
         'as' => 'admin.galeria'
     ]);
+
+    Route::get('/productos',[
+        'middleware' => 'sesion',
+        'uses' => 'AdminController@ProductosView',
+        'as' => 'admin.productos'
+    ]);
+
+     Route::get('/promociones',[
+        'middleware' => 'sesion',
+        'uses' => 'AdminController@PromocionesView',
+        'as' => 'admin.promociones'
+    ]);
+
     //--------------------------------------------DATA--------------------------------------------//
 
     Route::get('/users/get',[
@@ -76,6 +89,14 @@ Route::prefix('admin')->group(function (){
 
     Route::get('/images/get',[
        'uses' => 'AdminController@getImages'
+    ]);
+
+    Route::get('/products/get',[
+       'uses'=> 'AdminController@getProducts'
+    ]);
+
+    Route::get('/promotions/get',[
+       'uses'=> 'AdminController@getPromotions'
     ]);
 
     //--------------------------------------------POST--------------------------------------------//
@@ -95,6 +116,14 @@ Route::prefix('admin')->group(function (){
     Route::post('/image/visible/{id}',[
         'uses' => 'AdminController@imgVisible'
     ]);
+
+    Route::post('/addproduct',[
+       'uses' => 'AdminController@addProduct'
+    ]);
+
+    Route::post('/addpromo',[
+       'uses' => 'AdminController@addPromo'
+    ]);
     //--------------------------------------------DELETE-----------------------------------------//
 
     Route::delete('/user/delete/{apikey}',[
@@ -103,5 +132,13 @@ Route::prefix('admin')->group(function (){
 
     Route::delete('/image/delete/{id}',[
         'uses' => 'AdminController@deleteImg'
+    ]);
+
+    Route::delete('/product/delete/{id}',[
+        'uses' => 'AdminController@deleteProduct'
+    ]);
+
+    Route::delete('/promotion/delete/{id}',[
+        'uses' => 'AdminController@deletePromotion'
     ]);
 });

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Galeria;
+use App\Producto;
+use App\Promocion;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
@@ -24,15 +26,45 @@ class AdminController extends Controller
     }
 
     function IndexView(Request $request){
-        return view('admin.index');
+        $cookie = $request->cookie('IEV-logged');
+
+        $user = User::where('apikey','=',$cookie)->first();
+
+        return view('admin.index',['nombre'=>$user->nombre]);
     }
 
-    function UsersView(){
-        return view('admin.users');
+    function UsersView(Request $request){
+        $cookie = $request->cookie('IEV-logged');
+
+        $user = User::where('apikey','=',$cookie)->first();
+        return view('admin.users',['nombre'=>$user->nombre]);
     }
 
-    function GaleriaView(){
-        return view('admin.galeria');
+    function GaleriaView(Request $request){
+
+        $cookie = $request->cookie('IEV-logged');
+
+        $user = User::where('apikey','=',$cookie)->first();
+
+        return view('admin.galeria',['nombre'=>$user->nombre]);
+    }
+
+    function ProductosView(Request $request){
+
+        $cookie = $request->cookie('IEV-logged');
+
+        $user = User::where('apikey','=',$cookie)->first();
+
+        return view('admin.productos',['nombre'=>$user->nombre]);
+    }
+
+    function PromocionesView(Request $request){
+
+        $cookie = $request->cookie('IEV-logged');
+
+        $user = User::where('apikey','=',$cookie)->first();
+
+        return view('admin.promociones',['nombre'=>$user->nombre]);
     }
     //----------------------------------------------Data--------------------------------------------
 
@@ -47,7 +79,6 @@ class AdminController extends Controller
         }
     }
 
-
     function getImages(){
         try{
             $images = Galeria::all();
@@ -59,7 +90,27 @@ class AdminController extends Controller
         }
     }
 
+    function getProducts(){
+        try{
+            $products = Producto::all();
 
+
+            return Datatables::of(collect($products))->make(true);
+        }catch (Exception $e){
+            return Response::json($e->getMessage());
+        }
+    }
+
+    function getPromotions(){
+        try{
+            $promotions = Promocion::all();
+
+
+            return Datatables::of(collect($promotions))->make(true);
+        }catch (Exception $e){
+            return Response::json($e->getMessage());
+        }
+    }
 
     //--------------------------------------------Functions-----------------------------------------
     function doLogin(Request $request){
@@ -92,8 +143,10 @@ class AdminController extends Controller
             $user->apellidos = $request->apellidos;
             $user->username = $request->username;
             $user->password = bcrypt($request->pass);
-            $user->apikey = bcrypt($user->id);
 
+            $user->save();
+
+            $user->apikey = bcrypt($user->id);
             $user->save();
 
             $respuesta = ["code" => 200, "msg" => 'registrado correctamente', "message" => "success"];
@@ -144,6 +197,64 @@ class AdminController extends Controller
         return Response::json($respuesta);
     }
 
+    function addProduct(Request $request){
+        try{
+
+            $img = $request->file('input-file-preview');
+
+            $producto = new Producto;
+
+            $producto->image = 'sn';
+            $producto->nombre = $request->product;
+            $producto->desc = $request->desc;
+
+            $producto->save();
+
+            $producto->image = 'P'.$producto->id.'.'.$img->getClientOriginalExtension();
+
+            $nombre = '/productos/'.'P'.$producto->id.'.'.$img->getClientOriginalExtension();
+            Storage::disk('local')->put($nombre, \File::get($img));
+            $producto->save();
+
+            $respuesta = ["code" => 200, "msg" => 'Producto guardado correctamente', "message" => "success"];
+        }catch (Exception $e) {
+            $respuesta = ["code" => 500, "msg" => $e->getMessage(), "message" => "error"];
+        }
+
+        return Response::json($respuesta);
+    }
+
+    function addPromo(Request $request){
+        try{
+
+            $img = $request->file('input-file-preview');
+
+            $hasta = date('Y-m-j',strtotime($request->desde.'+ '.$request->dias.' days'));
+
+            $promo = new Promocion();
+
+            $promo->image = 'sn';
+            $promo->title = $request->title;
+            $promo->desc = $request->desc;
+            $promo->desde = $request->desde;
+            $promo->hasta = $hasta;
+
+            $promo->save();
+
+            $promo->image = 'PR'.$promo->id.'.'.$img->getClientOriginalExtension();
+
+            $nombre = '/promociones/'.'PR'.$promo->id.'.'.$img->getClientOriginalExtension();
+            Storage::disk('local')->put($nombre, \File::get($img));
+            $promo->save();
+
+            $respuesta = ["code" => 200, "msg" => 'Promocion creada correctamente', "message" => "success"];
+        }catch (Exception $e) {
+            $respuesta = ["code" => 500, "msg" => $e->getMessage(), "message" => "error"];
+        }
+
+        return Response::json($respuesta);
+    }
+
     function deleteImg($id){
         try{
             $image = Galeria::where("id",'=', $id)->first();
@@ -151,6 +262,38 @@ class AdminController extends Controller
             Storage::delete("/galeria/".$image->image);
 
             Galeria::destroy($id);
+
+            $respuesta = ["code" => 200, "msg" => 'Eliminado correctamente', "message" => "success"];
+        }catch (Exception $e){
+            $respuesta = ["code" => 500, "msg" => $e->getMessage(), "message" => "error"];
+        }
+
+        return Response::json($respuesta);
+    }
+
+    function deleteProduct($id){
+        try{
+            $image = Producto::where("id",'=', $id)->first();
+
+            Storage::delete("/productos/".$image->image);
+
+            Producto::destroy($id);
+
+            $respuesta = ["code" => 200, "msg" => 'Eliminado correctamente', "message" => "success"];
+        }catch (Exception $e){
+            $respuesta = ["code" => 500, "msg" => $e->getMessage(), "message" => "error"];
+        }
+
+        return Response::json($respuesta);
+    }
+
+    function deletePromotion($id){
+        try{
+            $image = Promocion::where("id",'=', $id)->first();
+
+            Storage::delete("/promociones/".$image->image);
+
+            Promocion::destroy($id);
 
             $respuesta = ["code" => 200, "msg" => 'Eliminado correctamente', "message" => "success"];
         }catch (Exception $e){
