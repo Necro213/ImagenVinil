@@ -62,10 +62,20 @@ Route::prefix('admin')->group(function (){
         'uses' => 'AdminController@IndexView',
        'as' => 'admin.index'
     ]);
+
+    Route::get('/galeria',[
+        'middleware' => 'sesion',
+        'uses' => 'AdminController@GaleriaView',
+        'as' => 'admin.galeria'
+    ]);
     //--------------------------------------------DATA--------------------------------------------//
 
     Route::get('/users/get',[
        'uses' => 'AdminController@getUsers'
+    ]);
+
+    Route::get('/images/get',[
+       'uses' => 'AdminController@getImages'
     ]);
 
     //--------------------------------------------POST--------------------------------------------//
@@ -78,9 +88,20 @@ Route::prefix('admin')->group(function (){
        'uses' => 'AdminController@regUser'
     ]);
 
+    Route::post('/addimage',[
+       'uses' => 'AdminController@addImage'
+    ]);
+
+    Route::post('/image/visible/{id}',[
+        'uses' => 'AdminController@imgVisible'
+    ]);
     //--------------------------------------------DELETE-----------------------------------------//
 
-    Route::delete('/delete/{apikey}',[
+    Route::delete('/user/delete/{apikey}',[
         'uses' => 'AdminController@deleteUser'
+    ]);
+
+    Route::delete('/image/delete/{id}',[
+        'uses' => 'AdminController@deleteImg'
     ]);
 });

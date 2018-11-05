@@ -29,6 +29,16 @@
                         </p>
                     </a>
                 </li>
+
+                <li class="nav-item">
+                    <a href="{{route('admin.galeria')}}" class="nav-link">
+                        <i class="fas fa-images"></i>
+                        <p>
+                            Galeria
+                            <span class="right badge badge-warning">New</span>
+                        </p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

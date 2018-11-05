@@ -12,7 +12,6 @@ $(function() {
             { "data": "username" },
             { "data": function (data) {
                     str = "<div align='center'>" +
-                        "<button class='btn btn-warning btn-sm'>Editar</button>" +
                         "<button class='btn btn-danger btn-sm' onclick='eliminar(\""+data.apikey+"\")'>Eliminar</button>" +
                         "</div>";
                     return str;
@@ -81,7 +80,7 @@ function eliminar(apikey){
     }).then((result) => {
         if(result.value){
             $.ajax({
-                url:document.location.protocol+'//'+document.location.host+""  +"/admin/delete/"+apikey,
+                url:document.location.protocol+'//'+document.location.host+""  +"/admin/user/delete/"+apikey,
                 type:"DELETE",
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
