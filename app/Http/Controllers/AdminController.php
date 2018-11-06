@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\EstacionConfig;
 use App\Galeria;
 use App\Producto;
 use App\Promocion;
@@ -65,6 +66,17 @@ class AdminController extends Controller
         $user = User::where('apikey','=',$cookie)->first();
 
         return view('admin.promociones',['nombre'=>$user->nombre]);
+    }
+
+    function EstacionesView(Request $request){
+
+        $cookie = $request->cookie('IEV-logged');
+
+        $user = User::where('apikey','=',$cookie)->first();
+
+        $estaciones = EstacionConfig::all();
+
+        return view('admin.estaciones',['nombre'=>$user->nombre,'estaciones' => $estaciones]);
     }
     //----------------------------------------------Data--------------------------------------------
 
@@ -248,6 +260,36 @@ class AdminController extends Controller
             $promo->save();
 
             $respuesta = ["code" => 200, "msg" => 'Promocion creada correctamente', "message" => "success"];
+        }catch (Exception $e) {
+            $respuesta = ["code" => 500, "msg" => $e->getMessage(), "message" => "error"];
+        }
+
+        return Response::json($respuesta);
+    }
+
+    function editEstaciones(Request $request){
+        try{
+
+            $primavera = $request->file('Primavera');
+            $verano = $request->file('Verano');
+            $otono = $request->file('Otono');
+            $invierno = $request->file('Invierno');
+
+            if($primavera != null){
+                Storage::disk('local')->put('/system/primavera.png', \File::get($primavera));
+            }
+
+            if ($verano != null){
+                Storage::disk('local')->put('/system/verano.png', \File::get($verano));
+            }
+            if ($otono != null){
+                Storage::disk('local')->put('/system/otono.png', \File::get($otono));
+            }
+            if ($invierno != null){
+                Storage::disk('local')->put('/system/invierno.png', \File::get($invierno));
+            }
+
+            $respuesta = ["code" => 200, "msg" => 'Imagenes actualizadas correctamente', "message" => "success"];
         }catch (Exception $e) {
             $respuesta = ["code" => 500, "msg" => $e->getMessage(), "message" => "error"];
         }

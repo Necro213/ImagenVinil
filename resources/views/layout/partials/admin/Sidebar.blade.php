@@ -50,11 +50,21 @@
                     </a>
                 </li>
 
-            <li class="nav-item">
+                <li class="nav-item">
                     <a href="{{route('admin.promociones')}}" class="nav-link">
                         <i class="fas fa-tags"></i>
                         <p>
                             Promociones
+                            <span class="right badge badge-warning">New</span>
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{route('admin.estaciones')}}" class="nav-link">
+                        <i class="fas fa-cloud-sun"></i>
+                        <p>
+                            Estaciones
                             <span class="right badge badge-warning">New</span>
                         </p>
                     </a>

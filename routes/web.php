@@ -81,6 +81,12 @@ Route::prefix('admin')->group(function (){
         'as' => 'admin.promociones'
     ]);
 
+     Route::get('/estaciones',[
+        'middleware' => 'sesion',
+        'uses' => 'AdminController@EstacionesView',
+        'as' => 'admin.estaciones'
+     ]);
+
     //--------------------------------------------DATA--------------------------------------------//
 
     Route::get('/users/get',[
@@ -123,6 +129,10 @@ Route::prefix('admin')->group(function (){
 
     Route::post('/addpromo',[
        'uses' => 'AdminController@addPromo'
+    ]);
+
+    Route::post('/estaciones/edit',[
+       'uses' => 'AdminController@editEstaciones'
     ]);
     //--------------------------------------------DELETE-----------------------------------------//
 
