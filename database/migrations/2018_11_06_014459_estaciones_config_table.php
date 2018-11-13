@@ -18,7 +18,9 @@ class EstacionesConfigTable extends Migration
             $table->string('estacion');
             $table->string('image')->nullable();
             $table->integer('dia');
+            $table->integer('diaf');
             $table->integer('mes');
+            $table->integer('mesf');
         });
     }
 

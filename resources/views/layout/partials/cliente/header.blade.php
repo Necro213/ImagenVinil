@@ -3,14 +3,15 @@
         <div class="row">
             <div class="col">
                 <div class="header_content d-flex flex-row align-items-center justify-content-start trans_400">
-                    <div class="logo"><a href="#">Imagen En Vinil</a></div>
+                    <div class="logo"><a href="#"><img src="{{asset('/img/system/logo.png')}}" alt="" style="height: 60px; width: auto;"></a></div>
                     <nav class="main_nav ml-auto mr-auto">
                         <ul class="d-flex flex-row align-items-center justify-content-start">
-                            <li><a href="{{route('cliente.index')}}">Home</a></li>
-                            <li><a href="{{route('cliente.about')}}">About us</a></li>
-                            <li><a href="{{route('cliente.services')}}">Services</a></li>
-                            <li><a href="{{route('cliente.elements')}}">News</a></li>
-                            <li><a href="{{route('cliente.contact')}}">Contact</a></li>
+                            <li><a href="{{route('cliente.index')}}">Inicio</a></li>
+                            <li><a href="{{route('cliente.about')}}">Productos y Servicios</a></li>
+                            <li><a href="{{route('cliente.services')}}">Noticias</a></li>
+                            <li><a href="{{route('cliente.elements')}}">Gama de Colores</a></li>
+                            <li><a href="{{route('cliente.contact')}}">Portafolio</a></li>
+                            <li><a href="{{route('cliente.contact')}}">Acerca de...</a></li>
                         </ul>
                     </nav>
                     <div class="log_reg">

@@ -52,9 +52,19 @@
 
                 <li class="nav-item">
                     <a href="{{route('admin.promociones')}}" class="nav-link">
-                        <i class="fas fa-tags"></i>
+                        <i class="fas fa-percent"></i>
                         <p>
                             Promociones
+                            <span class="right badge badge-warning">New</span>
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{route('admin.promociones')}}" class="nav-link">
+                        <i class="fas fa-user-friends"></i>
+                        <p>
+                            Colaboradores
                             <span class="right badge badge-warning">New</span>
                         </p>
                     </a>
@@ -66,6 +76,16 @@
                         <p>
                             Estaciones
                             <span class="right badge badge-warning">New</span>
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-tags"></i>
+                        <p>
+                            Ventas
+                            <span class="right badge badge-danger">Proximamente</span>
                         </p>
                     </a>
                 </li>

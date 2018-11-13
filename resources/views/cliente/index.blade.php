@@ -5,7 +5,7 @@
 
     <div class="home">
         <div class="home_background"></div>
-        <div class="background_image background_city" style="background-image:url(images/city.png)"></div>
+        <div class="background_image background_city" style="background-image:url({{asset('img/system/'.$hoy->image)}})"></div>
         <div class="cloud cloud_1"><img src="images/cloud.png" alt=""></div>
         <div class="cloud cloud_2"><img src="images/cloud.png" alt=""></div>
         <div class="cloud cloud_3"><img src="images/cloud_full.png" alt=""></div>
@@ -15,32 +15,12 @@
                 <div class="row">
                     <div class="col">
                         <div class="home_content text-center">
-                            <div class="home_title">The Best Hosting Offers</div>
-                            <div class="home_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus.</div>
+                            <!--div class="home_title">Imagen En Vinil</div>
+                            <div class="home_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus.</div-->
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-10 offset-lg-1">
-                        <div class="domain_search_form_container">
-                            <form action="#" id="domain_search_form" class="domain_search_form d-flex flex-md-row flex-column align-items-center justify-content-start">
-                                <div class="d-flex flex-row align-items-center justify-content-start">
-                                    <input type="text" class="domain_search_input" placeholder="yourdomain" required="required">
-                                    <div class="domain_search_dropdown d-flex flex-row align-items-center justify-content-start">
-                                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                                        <div class="domain_search_selected">.io</div>
-                                        <ul>
-                                            <li>.io</li>
-                                            <li>.com</li>
-                                            <li>.net</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <button class="domain_search_button d-flex flex-row align-items-center justify-content-center"><img src="images/search.png" alt="">Search</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>
