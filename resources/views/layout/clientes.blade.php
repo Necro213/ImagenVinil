@@ -20,6 +20,8 @@
 <div class="super_container">
     @include('layout.partials.cliente.header')
 
+    @include('layout.partials.cliente.banner')
+
     @yield('content')
 
     @include('layout.partials.cliente.footer')

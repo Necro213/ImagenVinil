@@ -1,35 +1,7 @@
 @extends('layout.clientes')
 
 @section('content')
-    <!-- Home -->
 
-    <div class="home">
-        <div class="home_background"></div>
-        <div class="background_image background_city" style="background-image:url(images/city_5.png)"></div>
-        <div class="cloud cloud_1"><img src="images/cloud_left.png" alt=""></div>
-        <div class="cloud cloud_2"><img src="images/cloud_left.png" alt=""></div>
-        <div class="cloud cloud_3"><img src="images/cloud_left_full.png" alt=""></div>
-        <div class="cloud cloud_4"><img src="images/cloud_left.png" alt=""></div>
-        <div class="home_container">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <div class="home_content">
-                            <div class="home_title">Contact</div>
-                            <div class="breadcrumbs">
-                                <ul class="d-flex flex-row align-items-center justify-content-start">
-                                    <li><a href="index.html">Home</a></li>
-                                    <li>Contact</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Domain Search -->
 
     <div class="domain_search">
         <div class="container">

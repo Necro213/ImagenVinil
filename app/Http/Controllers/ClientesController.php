@@ -3,16 +3,53 @@
 namespace App\Http\Controllers;
 
 use App\EstacionConfig;
+use App\Producto;
 use Illuminate\Http\Request;
 
 class ClientesController extends Controller
 {
     
     public function index(){
-        $hoy = date('Y-m-j');
 
+        $estacion = $this->getEstacion();
+        $productos = Producto::inRandomOrder()->paginate(3);
+
+        return view('cliente.index',['hoy'=>$estacion,'products' => $productos]);
+    }
+
+    public function services(){
+
+        $estacion = $this->getEstacion();
+
+        return view('cliente.services',['hoy'=>$estacion]);
+    }
+    public function elements(){
+
+        $estacion = $this->getEstacion();
+
+        return view('cliente.elements',['hoy'=>$estacion]);
+    }
+    public function contact(){
+
+        $estacion = $this->getEstacion();
+
+        return view('cliente.contact',['hoy'=>$estacion]);
+    }
+    public function blog(){
+
+        $estacion = $this->getEstacion();
+
+        return view('cliente.blog',['hoy'=>$estacion]);
+    }
+    public function about(){
+
+        $estacion = $this->getEstacion();
+
+        return view('cliente.about',['hoy'=>$estacion]);
+    }
+
+    private function getEstacion(){
         $mes = date('m');
-        $dia = date('j');
 
         if($mes < 3 || $mes > 11){
             $estacion = EstacionConfig::where('estacion', 'ilike', 'invierno')->first();
@@ -23,24 +60,6 @@ class ClientesController extends Controller
                 //-> where('diaf','>=', $dia)
                 ->first();
         }
-
-        return view('cliente.index',['hoy'=>$estacion]);
+        return $estacion;
     }
-
-    public function services(){
-        return view('cliente.services');
-    }
-    public function elements(){
-        return view('cliente.elements');
-    }
-    public function contact(){
-        return view('cliente.contact');
-    }
-    public function blog(){
-        return view('cliente.blog');
-    }
-    public function about(){
-        return view('cliente.about');
-    }
-
 }

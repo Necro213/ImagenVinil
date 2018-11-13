@@ -1,147 +1,15 @@
 @extends('layout.clientes')
 
 @section('content')
-    <!-- Home -->
 
-    <div class="home">
-        <div class="home_background"></div>
-        <div class="background_image background_city" style="background-image:url({{asset('img/system/'.$hoy->image)}})"></div>
-        <div class="cloud cloud_1"><img src="images/cloud.png" alt=""></div>
-        <div class="cloud cloud_2"><img src="images/cloud.png" alt=""></div>
-        <div class="cloud cloud_3"><img src="images/cloud_full.png" alt=""></div>
-        <div class="cloud cloud_4"><img src="images/cloud.png" alt=""></div>
-        <div class="home_container">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <div class="home_content text-center">
-                            <!--div class="home_title">Imagen En Vinil</div>
-                            <div class="home_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus.</div-->
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
 
     <!-- Intro -->
 
-    <div class="intro">
-        <div class="container">
-            <div class="row">
-                <div class="col magic_fade_in">
-                    <div class="section_title text-center"><h2>How to get started</h2></div>
-                </div>
-            </div>
-            <div class="row intro_row">
-                <div class="intro_dots magic_fade_in" style="background-image:url(images/dots.png)"></div>
-
-                <!-- Intro Item -->
-                <div class="col-lg-4 intro_col magic_fade_in">
-                    <div class="intro_item d-flex flex-column align-items-center justify-content-start text-center">
-                        <div class="intro_icon_container d-flex flex-column align-items-center justify-content-center">
-                            <div class="intro_icon"><img src="images/icon_1.svg" alt="https://www.flaticon.com/authors/freepik"></div>
-                        </div>
-                        <div class="intro_item_content">
-                            <div class="intro_item_title">Buy your Domain</div>
-                            <div class="intro_item_text">
-                                <p>Nullam lacinia ex eleifend orci porttitor, suscipit interdum augue condimentum. Etiam pretium turpis eget nibh laoreet iaculis.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Intro Item -->
-                <div class="col-lg-4 intro_col magic_fade_in">
-                    <div class="intro_item d-flex flex-column align-items-center justify-content-start text-center">
-                        <div class="intro_icon_container d-flex flex-column align-items-center justify-content-center">
-                            <div class="intro_icon"><img src="images/icon_2.svg" alt="https://www.flaticon.com/authors/freepik"></div>
-                        </div>
-                        <div class="intro_item_content">
-                            <div class="intro_item_title">Get your Hosting</div>
-                            <div class="intro_item_text">
-                                <p>Ex eleifend orci porttitor, suscipit interdum augue condimentum. Etiam pretium turpis eget nibh laoreet iaculis. Proin ac urna at lectus.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Intro Item -->
-                <div class="col-lg-4 intro_col magic_fade_in">
-                    <div class="intro_item d-flex flex-column align-items-center justify-content-start text-center">
-                        <div class="intro_icon_container d-flex flex-column align-items-center justify-content-center">
-                            <div class="intro_icon"><img src="images/icon_3.svg" alt="https://www.flaticon.com/authors/freepik"></div>
-                        </div>
-                        <div class="intro_item_content">
-                            <div class="intro_item_title">Set your Website</div>
-                            <div class="intro_item_text">
-                                <p>Suscipit interdum augue condimentum. Etiam pretium turpis eget nibh laoreet iaculis. Proin ac urna at lectus volutpat lobortis.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="row">
-                <div class="col text-center">
-                    <div class="intro_button text-center trans_200 ml-auto mr-auto"><a href="#">Start from $9.90/month</a></div>
-                </div>
-            </div>
-        </div>
-    </div>
+    @include('cliente.index.productos')
 
     <!-- Services -->
 
-    <div class="services">
-        <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/services.jpg" data-speed="0.8"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col magic_fade_in">
-                    <div class="section_title text-center"><h2>Our Services</h2></div>
-                </div>
-            </div>
-            <div class="row services_row">
-
-                <!-- Service -->
-                <div class="col-lg-4 service_col magic_fade_in">
-                    <div class="service d-flex flex-column align-items-center justify-content-start text-center trans_200">
-                        <div class="service_icon"><img class="svg" src="images/icon_4.svg" alt="https://www.flaticon.com/authors/freepik"></div>
-                        <div class="service_title"><h3>Cloud Backup</h3></div>
-                        <div class="service_text">
-                            <p>Nullam lacinia ex eleifend orci porttitor, suscipit interdum augue condimentum. Etiam pretium turpis ege.</p>
-                        </div>
-                        <div class="service_button trans_200"><a href="#">Read More</a></div>
-                    </div>
-                </div>
-
-                <!-- Service -->
-                <div class="col-lg-4 service_col magic_fade_in">
-                    <div class="service d-flex flex-column align-items-center justify-content-start text-center trans_200">
-                        <div class="service_icon"><img class="svg" src="images/icon_5.svg" alt="https://www.flaticon.com/authors/freepik"></div>
-                        <div class="service_title"><h3>Data Migration</h3></div>
-                        <div class="service_text">
-                            <p>Nullam lacinia ex eleifend orci porttitor, suscipit interdum augue condimentum. Etiam pretium turpis ege.</p>
-                        </div>
-                        <div class="service_button trans_200"><a href="#">Read More</a></div>
-                    </div>
-                </div>
-
-                <!-- Service -->
-                <div class="col-lg-4 service_col magic_fade_in">
-                    <div class="service d-flex flex-column align-items-center justify-content-start text-center trans_200">
-                        <div class="service_icon"><img class="svg" src="images/icon_6.svg" alt="https://www.flaticon.com/authors/freepik"></div>
-                        <div class="service_title"><h3>VPS Hosting</h3></div>
-                        <div class="service_text">
-                            <p>Nullam lacinia ex eleifend orci porttitor, suscipit interdum augue condimentum. Etiam pretium turpis ege.</p>
-                        </div>
-                        <div class="service_button trans_200"><a href="#">Read More</a></div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
+    @include('cliente.index.servicios')
 
     <!-- Pricing -->
 
