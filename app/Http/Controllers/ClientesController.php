@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\EstacionConfig;
 use App\Producto;
+use App\Promocion;
 use Illuminate\Http\Request;
 
 class ClientesController extends Controller
@@ -13,8 +14,9 @@ class ClientesController extends Controller
 
         $estacion = $this->getEstacion();
         $productos = Producto::inRandomOrder()->paginate(3);
+        $promociones = Promocion::all();
 
-        return view('cliente.index',['hoy'=>$estacion,'products' => $productos]);
+        return view('cliente.index',['hoy'=>$estacion,'products' => $productos,'promociones'=>$promociones]);
     }
 
     public function services(){
