@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Colaborador;
 use App\EstacionConfig;
 use App\Producto;
 use App\Promocion;
@@ -15,8 +16,10 @@ class ClientesController extends Controller
         $estacion = $this->getEstacion();
         $productos = Producto::inRandomOrder()->paginate(3);
         $promociones = Promocion::all();
+        $colaboradores = Colaborador::all();
 
-        return view('cliente.index',['hoy'=>$estacion,'products' => $productos,'promociones'=>$promociones]);
+        return view('cliente.index',['hoy'=>$estacion,'products' => $productos,'promociones'=>$promociones,
+            'colaboradores' => $colaboradores]);
     }
 
     public function services(){

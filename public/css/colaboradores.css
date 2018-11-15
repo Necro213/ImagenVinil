@@ -1,0 +1,67 @@
+ @media (min-width: 768px) {
+
+    /* show 3 items */
+    #colab .colab-inner .active,
+    #colab .colab-inner .active + .colab-item,
+    #colab .colab-inner .active + .colab-item + .colab-item,
+    #colab .colab-inner .active + .colab-item + .colab-item + .colab-item  {
+        display: block;
+    }
+
+     #colab .colab-inner .colab-item.active:not(.colab-item-right):not(.colab-item-left),
+     #colab .colab-inner .colab-item.active:not(.colab-item-right):not(.colab-item-left) + .colab-item,
+     #colab .colab-inner .colab-item.active:not(.colab-item-right):not(.colab-item-left) + .colab-item + .colab-item,
+     #colab .colab-inner .colab-item.active:not(.colab-item-right):not(.colab-item-left) + .colab-item + .colab-item + .colab-item {
+        transition: none;
+    }
+
+     #colab .colab-inner .colab-item-next,
+     #colab .colab-inner .colab-item-prev {
+        position: relative;
+        transform: translate3d(0, 0, 0);
+    }
+
+     #colab .colab-inner .active.colab-item + .colab-item + .colab-item + .colab-item + .colab-item {
+        position: absolute;
+        top: 0;
+        right: -25%;
+        z-index: -1;
+        display: block;
+        visibility: visible;
+    }
+
+    /* left or forward direction */
+     #colab .active.colab-item-left + .colab-item-next.colab-item-left,
+     #colab .colab-item-next.colab-item-left + .colab-item,
+     #colab .colab-item-next.colab-item-left + .colab-item + .colab-item,
+     #colab .colab-item-next.colab-item-left + .colab-item + .colab-item + .colab-item,
+     #colab .colab-item-next.colab-item-left + .colab-item + .colab-item + .colab-item + .colab-item {
+        position: relative;
+        transform: translate3d(-100%, 0, 0);
+        visibility: visible;
+    }
+
+    /* farthest right hidden item must be abso position for animations */
+     #colab .colab-inner .colab-item-prev.colab-item-right {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        display: block;
+        visibility: visible;
+    }
+
+    /* right or prev direction */
+     #colab .active.colab-item-right + .colab-item-prev.colab-item-right,
+     #colab .colab-item-prev.colab-item-right + .colab-item,
+     #colab .colab-item-prev.colab-item-right + .colab-item + .colab-item,
+     #colab .colab-item-prev.colab-item-right + .colab-item + .colab-item + .colab-item,
+     #colab .colab-item-prev.colab-item-right + .colab-item + .colab-item + .colab-item + .colab-item {
+        position: relative;
+        transform: translate3d(100%, 0, 0);
+        visibility: visible;
+        display: block;
+        visibility: visible;
+    }
+
+}

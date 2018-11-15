@@ -12,12 +12,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Galeria</h1>
+                        <h1>Colaboradores</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Home</a></li>
-                            <li class="breadcrumb-item active">Galeria</li>
+                            <li class="breadcrumb-item active">colaboradores</li>
                         </ol>
                     </div>
                 </div>
@@ -30,17 +30,16 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header" align="right">
-                            <button class="btn btn-success" id="addUser">Agregar Imagen</button>
+                            <button class="btn btn-success" id="addColaborador">Agregar Colaborador</button>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="galeriaTable" class="table table-bordered table-striped">
+                            <table id="ColaboradorTable" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
                                     <th>Imagen</th>
-                                    <th>Titulo</th>
-                                    <th>Descripcion</th>
-                                    <th>Visible</th>
+                                    <th>Nombre</th>
+                                    <th>Sitio</th>
                                     <th>Acciones</th>
                                 </tr>
                                 </thead>
@@ -58,17 +57,17 @@
         <!-- /.content -->
     </div>
 
-    <div class="modal" tabindex="-1" role="dialog" id="modalUser">
+    <div class="modal" tabindex="-1" role="dialog" id="modalColaborador">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Agregar Imagen</h5>
+                    <h5 class="modal-title">Agregar Colaborador</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="galeriaForm">
+                    <form id="colaboradoresForm">
                         {{csrf_field()}}
                         <div class="form-group">
                             <div class="row">
@@ -83,7 +82,7 @@
                                                 <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
                                                     <span class="glyphicon glyphicon-remove"></span> Clear
                                                 </button>
-                                                                                <!-- image-preview-input -->
+                                                    <!-- image-preview-input -->
                                                 <div class="btn btn-default image-preview-input">
                                                     <span class="glyphicon glyphicon-folder-open"></span>
                                                     <span class="image-preview-input-title">Browse</span>
@@ -97,15 +96,15 @@
                             </div>
                             <br>
                             <div class="row">
-                                <label for="title">Titulo</label>
-                                <input type="text" id="title" name="title" class="form-control" placeholder="Titulo">
+                                <label for="name">Nombre</label>
+                                <input type="text" id="name" name="name" class="form-control" placeholder="Colaborador">
                             </div>
                             <br>
                             <div class="row">
-                                <label for="desc">Descripcion</label>
-                                <input type="text" id="desc" name="desc" class="form-control" placeholder="Descripcion">
+                                <label for="sitio">Sitio</label>
+                                <input type="text" id="sitio" name="sitio" class="form-control" placeholder="Sitio">
                             </div>
-
+                            <br>
                         </div>
                     </form>
                 </div>
@@ -124,5 +123,5 @@
     <script src="{{asset('/plugins/datatables/jquery.dataTables.min.js')}}"></script>
     <script src="{{asset('/plugins/datatables/dataTables.bootstrap4.min.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.4/dist/sweetalert2.all.min.js"></script>
-    <script src="{{asset('/js/admin/galeria.js')}}"></script>
+    <script src="{{asset('/js/admin/colaboradores.js')}}"></script>
 @endsection

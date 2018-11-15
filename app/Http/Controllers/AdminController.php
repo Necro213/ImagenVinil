@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Colaborador;
 use App\EstacionConfig;
 use App\Galeria;
 use App\Producto;
 use App\Promocion;
 use App\User;
+use App\Visita;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Cookie;
@@ -31,7 +33,28 @@ class AdminController extends Controller
 
         $user = User::where('apikey','=',$cookie)->first();
 
-        return view('admin.index',['nombre'=>$user->nombre]);
+        $productos = Producto::all()->count();
+
+        $visitas = Visita::all();
+
+        $mes = date('m');
+
+        if($mes < 3 || $mes > 11){
+            $estacion = EstacionConfig::where('estacion', 'ilike', 'invierno')->first();
+        }else{
+            $estacion = EstacionConfig::where('mes', '<=', $mes)
+                ->where('mesf', '>', $mes)
+                //-> where('dia','<=', $dia)
+                //-> where('diaf','>=', $dia)
+                ->first();
+        }
+
+        $total = 0;
+        foreach ($visitas as $visita){
+            $total = $total+$visita->contador;
+        }
+
+        return view('admin.index',['nombre'=>$user->nombre,'productos' => $productos,'visitas' => $total, 'estacion' => $estacion]);
     }
 
     function UsersView(Request $request){
@@ -78,6 +101,15 @@ class AdminController extends Controller
 
         return view('admin.estaciones',['nombre'=>$user->nombre,'estaciones' => $estaciones]);
     }
+
+    function ColaboradoresView(Request $request){
+
+        $cookie = $request->cookie('IEV-logged');
+
+        $user = User::where('apikey','=',$cookie)->first();
+
+        return view('admin.colaboradores',['nombre'=>$user->nombre]);
+    }
     //----------------------------------------------Data--------------------------------------------
 
     function getUsers(){
@@ -97,6 +129,17 @@ class AdminController extends Controller
 
 
             return Datatables::of(collect($images))->make(true);
+        }catch (Exception $e){
+            return Response::json($e->getMessage());
+        }
+    }
+
+    function getColaboradores(){
+        try{
+            $colaboradores = Colaborador::all();
+
+
+            return Datatables::of(collect($colaboradores))->make(true);
         }catch (Exception $e){
             return Response::json($e->getMessage());
         }
@@ -209,6 +252,33 @@ class AdminController extends Controller
         return Response::json($respuesta);
     }
 
+    function addColaborador(Request $request){
+        try{
+
+            $img = $request->file('input-file-preview');
+
+            $colaborador = new Colaborador;
+
+            $colaborador->image = 'sn';
+            $colaborador->sitio = $request->sitio;
+            $colaborador->nombre = $request->name;
+
+            $colaborador->save();
+
+            $colaborador->image = 'C'.$colaborador->id.'.'.$img->getClientOriginalExtension();
+
+            $nombre = '/colaboradores/'.'C'.$colaborador->id.'.'.$img->getClientOriginalExtension();
+            Storage::disk('local')->put($nombre, \File::get($img));
+            $colaborador->save();
+
+            $respuesta = ["code" => 200, "msg" => 'Imagen guardada correctamente', "message" => "success"];
+        }catch (Exception $e) {
+            $respuesta = ["code" => 500, "msg" => $e->getMessage(), "message" => "error"];
+        }
+
+        return Response::json($respuesta);
+    }
+
     function addProduct(Request $request){
         try{
 
@@ -276,17 +346,29 @@ class AdminController extends Controller
             $invierno = $request->file('Invierno');
 
             if($primavera != null){
-                Storage::disk('local')->put('/system/primavera.png', \File::get($primavera));
+                Storage::disk('local')->put('/system/primavera.'.$primavera->getClientOriginalExtension(), \File::get($primavera));
+                $p = EstacionConfig::where('estacion','ilike','Primavera')->first();
+                $p->image = 'primavera.'.$primavera->getClientOriginalExtension();
+                $p->save();
             }
 
             if ($verano != null){
-                Storage::disk('local')->put('/system/verano.png', \File::get($verano));
+                Storage::disk('local')->put('/system/verano.'.$verano->getClientOriginalExtension(), \File::get($verano));
+                $v = EstacionConfig::where('estacion','ilike','Verano')->first();
+                $v->image = 'verano.'.$primavera->getClientOriginalExtension();
+                $v->save();
             }
             if ($otono != null){
-                Storage::disk('local')->put('/system/otono.png', \File::get($otono));
+                Storage::disk('local')->put('/system/otono.'.$otono->getClientOriginalExtension(), \File::get($otono));
+                $o = EstacionConfig::where('estacion','ilike','Otono')->first();
+                $o->image = 'otono.'.$primavera->getClientOriginalExtension();
+                $o->save();
             }
             if ($invierno != null){
-                Storage::disk('local')->put('/system/invierno.png', \File::get($invierno));
+                Storage::disk('local')->put('/system/invierno.'.$invierno->getClientOriginalExtension(), \File::get($invierno));
+                $i = EstacionConfig::where('estacion','ilike','Invierno')->first();
+                $i->image = 'invierno.'.$primavera->getClientOriginalExtension();
+                $i->save();
             }
 
             $respuesta = ["code" => 200, "msg" => 'Imagenes actualizadas correctamente', "message" => "success"];
@@ -304,6 +386,22 @@ class AdminController extends Controller
             Storage::delete("/galeria/".$image->image);
 
             Galeria::destroy($id);
+
+            $respuesta = ["code" => 200, "msg" => 'Eliminado correctamente', "message" => "success"];
+        }catch (Exception $e){
+            $respuesta = ["code" => 500, "msg" => $e->getMessage(), "message" => "error"];
+        }
+
+        return Response::json($respuesta);
+    }
+
+    function deleteColaborador($id){
+        try{
+            $image = Colaborador::where("id",'=', $id)->first();
+
+            Storage::delete("/colaborador/".$image->image);
+
+            Colaborador::destroy($id);
 
             $respuesta = ["code" => 200, "msg" => 'Eliminado correctamente', "message" => "success"];
         }catch (Exception $e){

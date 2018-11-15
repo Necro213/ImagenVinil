@@ -87,6 +87,12 @@ Route::prefix('admin')->group(function (){
         'as' => 'admin.estaciones'
      ]);
 
+     Route::get('/colaboradores',[
+        'middleware' => 'sesion',
+        'uses' => 'AdminController@ColaboradoresView',
+        'as' => 'admin.colaboradores'
+     ]);
+
     //--------------------------------------------DATA--------------------------------------------//
 
     Route::get('/users/get',[
@@ -95,6 +101,10 @@ Route::prefix('admin')->group(function (){
 
     Route::get('/images/get',[
        'uses' => 'AdminController@getImages'
+    ]);
+
+   Route::get('/colaboradores/get',[
+       'uses' => 'AdminController@getColaboradores'
     ]);
 
     Route::get('/products/get',[
@@ -117,6 +127,10 @@ Route::prefix('admin')->group(function (){
 
     Route::post('/addimage',[
        'uses' => 'AdminController@addImage'
+    ]);
+
+    Route::post('/addcolaborador',[
+       'uses' => 'AdminController@addColaborador'
     ]);
 
     Route::post('/image/visible/{id}',[
@@ -142,6 +156,10 @@ Route::prefix('admin')->group(function (){
 
     Route::delete('/image/delete/{id}',[
         'uses' => 'AdminController@deleteImg'
+    ]);
+
+    Route::delete('/colaborador/delete/{id}',[
+        'uses' => 'AdminController@deleteColaborador'
     ]);
 
     Route::delete('/product/delete/{id}',[
