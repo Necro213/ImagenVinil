@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Colaborador;
 use App\EstacionConfig;
 use App\Galeria;
+use App\GnrlConfig;
 use App\Producto;
 use App\Promocion;
 use App\User;
@@ -109,6 +110,17 @@ class AdminController extends Controller
         $user = User::where('apikey','=',$cookie)->first();
 
         return view('admin.colaboradores',['nombre'=>$user->nombre]);
+    }
+
+    function GeneralView(Request $request){
+
+        $cookie = $request->cookie('IEV-logged');
+
+        $user = User::where('apikey','=',$cookie)->first();
+
+        $gnrl = GnrlConfig::first();
+
+        return view('admin.general',['nombre'=>$user->nombre,'gnrl' => $gnrl]);
     }
     //----------------------------------------------Data--------------------------------------------
 
@@ -299,6 +311,34 @@ class AdminController extends Controller
             $producto->save();
 
             $respuesta = ["code" => 200, "msg" => 'Producto guardado correctamente', "message" => "success"];
+        }catch (Exception $e) {
+            $respuesta = ["code" => 500, "msg" => $e->getMessage(), "message" => "error"];
+        }
+
+        return Response::json($respuesta);
+    }
+
+    function generalConfig(Request $request){
+        try{
+
+            $gnrl = GnrlConfig::first();
+
+            if ($gnrl == null){
+                $gnrl = new GnrlConfig;
+            }
+
+            $gnrl->mision = $request->mision;
+            $gnrl->vision = $request->vision;
+            $gnrl->telefono = $request->telefono;
+            $gnrl->direccion = $request->direccion;
+            $gnrl->email = $request->email;
+            $gnrl->facebook = $request->face;
+            $gnrl->twitter = $request->tw;
+            $gnrl->eslogan = $request->eslogan;
+
+            $gnrl->save();
+
+            $respuesta = ["code" => 200, "msg" => 'Guardado correctamente', "message" => "success"];
         }catch (Exception $e) {
             $respuesta = ["code" => 500, "msg" => $e->getMessage(), "message" => "error"];
         }

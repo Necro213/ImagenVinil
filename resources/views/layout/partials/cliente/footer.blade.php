@@ -10,7 +10,7 @@
                     <br><br><br><br>
                     <div class="footer_text">
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet aperiam consequuntur et facere fuga hic iste itaque magnam, magni maxime nobis pariatur perferendis placeat quos repellat similique temporibus voluptatibus?
+                            {{$gnrl->eslogan}}
                         </p>
                     </div>
 

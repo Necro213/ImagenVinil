@@ -7,7 +7,7 @@
                     <nav class="main_nav ml-auto mr-auto">
                         <ul class="d-flex flex-row align-items-center justify-content-start">
                             <li><a href="{{route('cliente.index')}}">Inicio</a></li>
-                            <li><a href="{{route('cliente.about')}}">Productos y Servicios</a></li>
+                            <li><a href="{{route('cliente.services')}}">Productos y Servicios</a></li>
                             <li><a href="{{route('cliente.services')}}">Noticias</a></li>
                             <li><a href="{{route('cliente.elements')}}">Gama de Colores</a></li>
                             <li><a href="{{route('cliente.contact')}}">Portafolio</a></li>

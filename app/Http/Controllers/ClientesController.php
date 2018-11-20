@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Colaborador;
 use App\EstacionConfig;
+use App\GnrlConfig;
 use App\Producto;
 use App\Promocion;
 use Illuminate\Http\Request;
@@ -17,16 +18,18 @@ class ClientesController extends Controller
         $productos = Producto::inRandomOrder()->paginate(3);
         $promociones = Promocion::all();
         $colaboradores = Colaborador::all();
-
+        $gnrl = GnrlConfig::first();
         return view('cliente.index',['hoy'=>$estacion,'products' => $productos,'promociones'=>$promociones,
-            'colaboradores' => $colaboradores]);
+            'colaboradores' => $colaboradores,'gnrl' => $gnrl]);
     }
 
     public function services(){
 
         $estacion = $this->getEstacion();
+        $gnrl = GnrlConfig::first();
+        $productos = Producto::all();
 
-        return view('cliente.services',['hoy'=>$estacion]);
+        return view('cliente.services',['hoy'=>$estacion,'gnrl' => $gnrl,"productos" => $productos]);
     }
     public function elements(){
 

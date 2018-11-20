@@ -91,11 +91,11 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{route('admin.general')}}" class="nav-link">
                         <i class="fas fa-toolbox"></i>
                         <p>
                             Configuracion
-                            <span class="right badge badge-danger">Proximamente</span>
+                            <span class="right badge badge-warning">New</span>
                         </p>
                     </a>
                 </li>

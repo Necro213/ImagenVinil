@@ -75,7 +75,7 @@ Route::prefix('admin')->group(function (){
         'as' => 'admin.productos'
     ]);
 
-     Route::get('/promociones',[
+    Route::get('/promociones',[
         'middleware' => 'sesion',
         'uses' => 'AdminController@PromocionesView',
         'as' => 'admin.promociones'
@@ -91,6 +91,12 @@ Route::prefix('admin')->group(function (){
         'middleware' => 'sesion',
         'uses' => 'AdminController@ColaboradoresView',
         'as' => 'admin.colaboradores'
+     ]);
+
+    Route::get('/general',[
+        'middleware' => 'sesion',
+        'uses' => 'AdminController@GeneralView',
+        'as' => 'admin.general'
      ]);
 
     //--------------------------------------------DATA--------------------------------------------//
@@ -127,6 +133,10 @@ Route::prefix('admin')->group(function (){
 
     Route::post('/addimage',[
        'uses' => 'AdminController@addImage'
+    ]);
+
+    Route::post('/general/edit',[
+       'uses' => 'AdminController@generalConfig'
     ]);
 
     Route::post('/addcolaborador',[

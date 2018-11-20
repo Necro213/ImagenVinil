@@ -13,7 +13,7 @@
                 <div class="col">
                     <div class="home_content text-center">
                         <div class="home_title">Imagen En Vinil</div>
-                        <div class="home_text">Tu nos envias tus ideas, nosotros las hacemos realidad</div>
+                        <div class="home_text">{{$gnrl->eslogan}}</div>
                     </div>
                 </div>
             </div>

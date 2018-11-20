@@ -7,9 +7,9 @@
                     <div class="section_title magic_fade_in"><h2>¿Quienes somos?</h2></div>
                     <div class="choice_text">
                         <label>Nuestra Mision</label>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores eum fugiat libero nesciunt totam? A ad aspernatur magnam quod sit ullam vero? Architecto corporis, deleniti nostrum perspiciatis quam sequi. Delectus?</p>
+                        <p>{{$gnrl->mision}}</p>
                         <label>Nuestra Vision</label>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores eum fugiat libero nesciunt totam? A ad aspernatur magnam quod sit ullam vero? Architecto corporis, deleniti nostrum perspiciatis quam sequi. Delectus?</p>
+                        <p>{{$gnrl->vision}}</p>
                     </div>
                     <div class="choice_list">
                         <ul class="d-flex flex-row align-items-start justify-content-between">

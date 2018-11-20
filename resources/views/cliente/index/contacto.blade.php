@@ -11,25 +11,25 @@
             <div class="col-md-6" style="color: white">
                 <form>
                     <label>Telefono</label>
-                    <p style="color: white">(311) 123-1242</p>
+                    <p style="color: white">{{$gnrl->telefono}}</p>
                     <br>
                     <label>Direccion</label>
-                    <p style="color: white">Colonia Los Sauces, calle Florencia</p>
+                    <p style="color: white">{{$gnrl->direccion}}</p>
                     <br>
                     <label>Correo</label>
-                    <p style="color: white">correo@gmail.com</p>
+                    <p style="color: white">{{$gnrl->email}}</p>
                     <br>
                     <label>Visitanos en nuestras Redes Sociales</label>
                     <div class="row">
                         <div class="col-md-2">
                             <h1 style="color: #00acee">
-                                <i class="fab fa-twitter"></i>
+                                <a href="{{$gnrl->twitter}}"><i class="fab fa-twitter"></i></a>
                             </h1>
                         </div>
 
                         <div class="col-md-2">
                             <h1 style="color: #3b5998">
-                                <i class="fab fa-facebook-square"></i>
+                                <a href="{{$gnrl->facebook}}"><i class="fab fa-facebook-square"></i></a>
                             </h1>
                         </div>
 
