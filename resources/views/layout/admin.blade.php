@@ -82,12 +82,15 @@
 <script src="{{asset('plugins/slimScroll/jquery.slimscroll.min.js')}}"></script>
 <!-- FastClick -->
 <script src="{{asset('plugins/fastclick/fastclick.js')}}"></script>
+<script src="{{asset('plugins/chart.js/Chart.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('/js/adminlte.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="{{asset('/js/pages/dashboard3.js')}}"></script>
 <script src="{{asset('/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('/js/demo.js')}}"></script>
+<script src="{{asset('/js/chart.js')}}"></script>
 
 @yield('scripts')
 </body>

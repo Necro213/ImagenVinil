@@ -121,6 +121,10 @@ Route::prefix('admin')->group(function (){
        'uses'=> 'AdminController@getPromotions'
     ]);
 
+    Route::get('/visitors/get',[
+       'uses'=> 'AdminController@getVisitors'
+    ]);
+
     //--------------------------------------------POST--------------------------------------------//
 
     Route::post('/dologin',[

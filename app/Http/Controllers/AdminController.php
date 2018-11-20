@@ -179,6 +179,145 @@ class AdminController extends Controller
         }
     }
 
+    function getVisitors(){
+        try{
+            $promotions = Promocion::all();
+
+            $año = date('Y');
+
+            $dia1 = date('Y-m-j',strtotime($año.'-01-01'));
+            $dia2 = date('Y-m-j',strtotime($año.'-12-31'));
+            $dia1a = date('Y-m-j',strtotime(($año-1).'-01-01'));
+            $dia2a = date('Y-m-j',strtotime(($año-1).'-12-31'));
+
+            $visitas = Visita::where('fecha', '>', $dia1)
+                ->where('fecha','<', $dia2)
+                ->get();
+
+            $visitasA = Visita::where('fecha', '>', $dia1a)
+                ->where('fecha','<', $dia2a)
+                ->get();
+
+            $enero = 0;
+            $febrero = 0;
+            $marzo = 0;
+            $abril = 0;
+            $mayo = 0;
+            $junio = 0;
+            $julio = 0;
+            $agosto = 0;
+            $septiembre = 0;
+            $octubre = 0;
+            $noviembre = 0;
+            $diciembre = 0;
+
+            $visitas1 = [];
+            foreach ($visitas as $visita){
+                $mes = date('m',strtotime($visita->fecha));
+                switch ($mes){
+                    case 1: $enero+=$visita->contador;
+                        break;
+                    case 2: $febrero+=$visita->contador;
+                        break;
+                    case 3: $marzo+=$visita->contador;
+                        break;
+                    case 4: $abril+=$visita->contador;
+                        break;
+                    case 5: $mayo+=$visita->contador;
+                        break;
+                    case 6: $junio+=$visita->contador;
+                        break;
+                    case 7: $julio+=$visita->contador;
+                        break;
+                    case 8: $agosto+=$visita->contador;
+                        break;
+                    case 9: $septiembre+=$visita->contador;
+                        break;
+                    case 10: $octubre+=$visita->contador;
+                        break;
+                    case 11: $noviembre+=$visita->contador;
+                        break;
+                    case 12: $diciembre+=$visita->contador;
+                        break;
+                }
+            }
+
+            array_push($visitas1,$enero);
+            array_push($visitas1,$febrero);
+            array_push($visitas1,$marzo);
+            array_push($visitas1,$abril);
+            array_push($visitas1,$mayo);
+            array_push($visitas1,$junio);
+            array_push($visitas1,$julio);
+            array_push($visitas1,$agosto);
+            array_push($visitas1,$septiembre);
+            array_push($visitas1,$octubre);
+            array_push($visitas1,$noviembre);
+            array_push($visitas1,$diciembre);
+
+            $enero = 0;
+            $febrero = 0;
+            $marzo = 0;
+            $abril = 0;
+            $mayo = 0;
+            $junio = 0;
+            $julio = 0;
+            $agosto = 0;
+            $septiembre = 0;
+            $octubre = 0;
+            $noviembre = 0;
+            $diciembre = 0;
+
+            $visitas2 = [];
+            foreach ($visitasA as $visita){
+                $mes = date('m',strtotime($visita->fecha));
+                switch ($mes){
+                    case 1: $enero+=$visita->contador;
+                        break;
+                    case 2: $febrero+=$visita->contador;
+                        break;
+                    case 3: $marzo+=$visita->contador;
+                        break;
+                    case 4: $abril+=$visita->contador;
+                        break;
+                    case 5: $mayo+=$visita->contador;
+                        break;
+                    case 6: $junio+=$visita->contador;
+                        break;
+                    case 7: $julio+=$visita->contador;
+                        break;
+                    case 8: $agosto+=$visita->contador;
+                        break;
+                    case 9: $septiembre+=$visita->contador;
+                        break;
+                    case 10: $octubre+=$visita->contador;
+                        break;
+                    case 11: $noviembre+=$visita->contador;
+                        break;
+                    case 12: $diciembre+=$visita->contador;
+                        break;
+                }
+            }
+
+            array_push($visitas2,$enero);
+            array_push($visitas2,$febrero);
+            array_push($visitas2,$marzo);
+            array_push($visitas2,$abril);
+            array_push($visitas2,$mayo);
+            array_push($visitas2,$junio);
+            array_push($visitas2,$julio);
+            array_push($visitas2,$agosto);
+            array_push($visitas2,$septiembre);
+            array_push($visitas2,$octubre);
+            array_push($visitas2,$noviembre);
+            array_push($visitas2,$diciembre);
+
+            return Response::json(['code' => 200, 'v1' => $visitas1, 'v2' => $visitas2]);
+        }catch (Exception $e){
+            return Response::json($e->getMessage());
+        }
+    }
+
     //--------------------------------------------Functions-----------------------------------------
     function doLogin(Request $request){
         try{
