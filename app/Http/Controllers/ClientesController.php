@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Colaborador;
 use App\EstacionConfig;
+use App\Galeria;
 use App\GnrlConfig;
 use App\Producto;
 use App\Promocion;
@@ -37,11 +38,12 @@ class ClientesController extends Controller
 
         return view('cliente.elements',['hoy'=>$estacion]);
     }
-    public function contact(){
-
+    public function portafolio(){
+        $gnrl = GnrlConfig::first();
         $estacion = $this->getEstacion();
+        $galeria = Galeria::where('visible','=', 'true')->get();
 
-        return view('cliente.contact',['hoy'=>$estacion]);
+        return view('cliente.portafolio',['hoy'=>$estacion,'gnrl' => $gnrl,"galeria" => $galeria]);
     }
     public function blog(){
 

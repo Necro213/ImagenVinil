@@ -26,9 +26,9 @@ Route::group(['middleware' => ['visitas']],function (){
         'as' => 'cliente.elements'
     ]);
 
-    Route::get('/contact',[
-        'uses' => 'ClientesController@contact',
-        'as' => 'cliente.contact'
+    Route::get('/portafolio',[
+        'uses' => 'ClientesController@portafolio',
+        'as' => 'cliente.portafolio'
     ]);
 
     Route::get('/blog',[
