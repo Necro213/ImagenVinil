@@ -8,7 +8,7 @@
                         <ul class="d-flex flex-row align-items-center justify-content-start">
                             <li><a href="{{route('cliente.index')}}">Inicio</a></li>
                             <li><a href="{{route('cliente.services')}}">Productos y Servicios</a></li>
-                            <li><a href="{{route('cliente.services')}}">Noticias</a></li>
+                            <!--li><a href="{{route('cliente.services')}}">Noticias</a></li-->
                             <li><a href="{{route('cliente.gama')}}">Gama de Colores</a></li>
                             <li><a href="{{route('cliente.portafolio')}}">Portafolio</a></li>
                             <li><a href="{{route('cliente.about')}}">Acerca de...</a></li>

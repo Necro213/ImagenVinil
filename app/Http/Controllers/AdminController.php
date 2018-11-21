@@ -636,6 +636,12 @@ class AdminController extends Controller
 
     function generalConfig(Request $request){
         try{
+            $img = $request->file('input-file-preview');
+
+            if($img != null){
+                $nombre = '/system/gama.jpg';
+                Storage::disk('local')->put($nombre, \File::get($img));
+            }
 
             $gnrl = GnrlConfig::first();
 

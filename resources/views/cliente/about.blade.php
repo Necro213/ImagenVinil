@@ -10,9 +10,11 @@
                 <!-- Why Choose Us Content -->
                 <div class="col-lg-6 why_col magic_fade_in">
                     <div class="section_title"><h2>Quienes Somos?</h2></div>
+                    <hr>
                     <div class="why_text">
-                        <p></p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet consequuntur deleniti eum illum magni rerum. Aliquam aut facilis ipsa minus molestias numquam optio rerum, sequi tenetur unde velit vero.</p>
                     </div>
+                    <br>
                     <div class="why_list">
                         <ul>
                             <li class="d-flex flex-row align-items-center justify-content-start"><div></div>Nuestra Vision</li>
@@ -25,7 +27,7 @@
 
                 <!-- Why Choose Us Image -->
                 <div class="col-lg-6 why_col magic_fade_in">
-                    <div class="why_image"><img src="images/why.jpg" alt=""></div>
+                    <div class="why_image"><img src="{{asset('/img/system/img1.jpg')}}" alt=""></div>
                 </div>
             </div>
         </div>
