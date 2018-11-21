@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
             'username' => 'Necro',
             'password' => bcrypt('1234'),
             'apikey' => bcrypt('Necro')
-        ]);*/
+        ]);
 
         DB::table('estacion_config')->insert([
             'image' => 'primavera.png',
@@ -54,6 +54,18 @@ class DatabaseSeeder extends Seeder
             'mes' => 12,
             'diaf' => 21,
             'mesf' => 3
+        ]);*/
+
+        DB::table('configGnrl')->insert([
+            'id'=>1,
+            'mision'=>'mision',
+            'vision'=>'vision',
+            'telefono'=>'telefono',
+            'direccion'=>'direccion',
+            'email'=>'email',
+            'facebook'=>'facebook',
+            'twitter'=>'tw',
+            'eslogan'=>'eslogan',
         ]);
     }
 }
