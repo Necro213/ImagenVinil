@@ -9,9 +9,9 @@
                             <li><a href="{{route('cliente.index')}}">Inicio</a></li>
                             <li><a href="{{route('cliente.services')}}">Productos y Servicios</a></li>
                             <li><a href="{{route('cliente.services')}}">Noticias</a></li>
-                            <li><a href="{{route('cliente.elements')}}">Gama de Colores</a></li>
+                            <li><a href="{{route('cliente.gama')}}">Gama de Colores</a></li>
                             <li><a href="{{route('cliente.portafolio')}}">Portafolio</a></li>
-                            <li><a href="{{route('cliente.portafolio')}}">Acerca de...</a></li>
+                            <li><a href="{{route('cliente.about')}}">Acerca de...</a></li>
                         </ul>
                     </nav>
                     <div class="log_reg">
@@ -41,7 +41,7 @@
             <li><a href="{{route('cliente.index')}}">Home</a></li>
             <li><a href="{{route('cliente.about')}}">About us</a></li>
             <li><a href="{{route('cliente.services')}}">Services</a></li>
-            <li><a href="{{route('cliente.elements')}}">News</a></li>
+            <li><a href="{{route('cliente.gama')}}">News</a></li>
             <li><a href="{{route('cliente.portafolio')}}">Contact</a></li>
         </ul>
     </nav>

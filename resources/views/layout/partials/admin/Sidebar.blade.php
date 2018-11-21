@@ -25,7 +25,6 @@
                         <i class="fas fa-users"></i>
                         <p>
                             Usuarios
-                            <span class="right badge badge-warning">New</span>
                         </p>
                     </a>
                 </li>
@@ -35,7 +34,6 @@
                         <i class="fas fa-images"></i>
                         <p>
                             Galeria
-                            <span class="right badge badge-warning">New</span>
                         </p>
                     </a>
                 </li>
@@ -45,7 +43,6 @@
                         <i class="fas fa-box"></i>
                         <p>
                             Productos
-                            <span class="right badge badge-warning">New</span>
                         </p>
                     </a>
                 </li>
@@ -55,7 +52,6 @@
                         <i class="fas fa-percent"></i>
                         <p>
                             Promociones
-                            <span class="right badge badge-warning">New</span>
                         </p>
                     </a>
                 </li>
@@ -65,7 +61,6 @@
                         <i class="fas fa-user-friends"></i>
                         <p>
                             Colaboradores
-                            <span class="right badge badge-warning">New</span>
                         </p>
                     </a>
                 </li>
@@ -75,17 +70,15 @@
                         <i class="fas fa-cloud-sun"></i>
                         <p>
                             Estaciones
-                            <span class="right badge badge-warning">New</span>
                         </p>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{route('admin.ventas')}}" class="nav-link">
                         <i class="fas fa-tags"></i>
                         <p>
                             Ventas
-                            <span class="right badge badge-danger">Proximamente</span>
                         </p>
                     </a>
                 </li>
@@ -95,7 +88,6 @@
                         <i class="fas fa-toolbox"></i>
                         <p>
                             Configuracion
-                            <span class="right badge badge-warning">New</span>
                         </p>
                     </a>
                 </li>

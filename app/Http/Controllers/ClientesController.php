@@ -8,6 +8,7 @@ use App\Galeria;
 use App\GnrlConfig;
 use App\Producto;
 use App\Promocion;
+use App\User;
 use Illuminate\Http\Request;
 
 class ClientesController extends Controller
@@ -32,11 +33,12 @@ class ClientesController extends Controller
 
         return view('cliente.services',['hoy'=>$estacion,'gnrl' => $gnrl,"productos" => $productos]);
     }
-    public function elements(){
+    public function gama(){
 
+        $gnrl = GnrlConfig::first();
         $estacion = $this->getEstacion();
 
-        return view('cliente.elements',['hoy'=>$estacion]);
+        return view('cliente.gama',['hoy'=>$estacion,'gnrl' => $gnrl]);
     }
     public function portafolio(){
         $gnrl = GnrlConfig::first();
@@ -46,6 +48,7 @@ class ClientesController extends Controller
         return view('cliente.portafolio',['hoy'=>$estacion,'gnrl' => $gnrl,"galeria" => $galeria]);
     }
     public function blog(){
+        $gnrl = GnrlConfig::first();
 
         $estacion = $this->getEstacion();
 
@@ -53,9 +56,11 @@ class ClientesController extends Controller
     }
     public function about(){
 
+        $gnrl = GnrlConfig::first();
         $estacion = $this->getEstacion();
+        $user = User::all();
 
-        return view('cliente.about',['hoy'=>$estacion]);
+        return view('cliente.about',['hoy'=>$estacion,'gnrl' => $gnrl, 'users' => $user]);
     }
 
     private function getEstacion(){

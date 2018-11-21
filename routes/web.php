@@ -21,9 +21,9 @@ Route::group(['middleware' => ['visitas']],function (){
         'as' => 'cliente.services'
     ]);
 
-    Route::get('/elements',[
-        'uses' => 'ClientesController@elements',
-        'as' => 'cliente.elements'
+    Route::get('/gama',[
+        'uses' => 'ClientesController@gama',
+        'as' => 'cliente.gama'
     ]);
 
     Route::get('/portafolio',[
@@ -37,7 +37,7 @@ Route::group(['middleware' => ['visitas']],function (){
         'as' => 'cliente.blog'
     ]);
 
-    Route::get('/about',[
+    Route::get('/acercade',[
         'uses' => 'ClientesController@about',
         'as' => 'cliente.about'
     ]);
@@ -99,6 +99,12 @@ Route::prefix('admin')->group(function (){
         'as' => 'admin.general'
      ]);
 
+    Route::get('/ventas',[
+        'middleware' => 'sesion',
+        'uses' => 'AdminController@VentasView',
+        'as' => 'admin.ventas'
+    ]);
+
     //--------------------------------------------DATA--------------------------------------------//
 
     Route::get('/users/get',[
@@ -125,6 +131,10 @@ Route::prefix('admin')->group(function (){
        'uses'=> 'AdminController@getVisitors'
     ]);
 
+    Route::get('/ventas/get/{id}',[
+       'uses'=> 'AdminController@getVentas'
+    ]);
+
     //--------------------------------------------POST--------------------------------------------//
 
     Route::post('/dologin',[
@@ -133,6 +143,10 @@ Route::prefix('admin')->group(function (){
 
     Route::post('/reguser',[
        'uses' => 'AdminController@regUser'
+    ]);
+
+    Route::post('/regventa',[
+       'uses' => 'AdminController@regVenta'
     ]);
 
     Route::post('/addimage',[
