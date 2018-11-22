@@ -40,6 +40,8 @@
                                     <th>Imagen</th>
                                     <th>Producto</th>
                                     <th>Descripcion</th>
+                                    <th>Categoria</th>
+                                    <th>Subcategoria</th>
                                     <th>Acciones</th>
                                 </tr>
                                 </thead>
@@ -98,6 +100,25 @@
                             <div class="row">
                                 <label for="product">Producto</label>
                                 <input type="text" id="product" name="product" class="form-control" placeholder="Producto">
+                            </div>
+                            <br>
+                            <div class="row">
+                                <label for="cat">Categorias</label>
+                                <select name="cat" id="cat" class="form-control">
+                                    <option value="00">Seleccione una Categoria</option>
+                                    <option value="rotulacion">Rotulacion Digital</option>
+                                    <option value="senalamiento">Señalamiento Vial</option>
+                                    <option value="estampados">Estampados Textiles</option>
+                                    <option value="grabados">Grabados</option>
+                                    <option value="anuncios">Anuncios</option>
+                                </select>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <label for="scat">Sub Categorias</label>
+                                <select name="scat" id="scat" class="form-control">
+                                    <option value="00">Seleccione una SubCategoria</option>
+                                </select>
                             </div>
                             <br>
                             <div class="row">

@@ -617,6 +617,8 @@ class AdminController extends Controller
             $producto->image = 'sn';
             $producto->nombre = $request->product;
             $producto->desc = $request->desc;
+            $producto->categoria = $request->cat;
+            $producto->subcategoria = $request->scat;
 
             $producto->save();
 

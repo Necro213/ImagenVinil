@@ -12,7 +12,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        /*DB::table('users')->insert([
+        DB::table('users')->insert([
             'nombre' => 'Alexis Adrian',
             'apellidos' => 'Bogarin Santana',
             'username' => 'Necro',
@@ -54,7 +54,7 @@ class DatabaseSeeder extends Seeder
             'mes' => 12,
             'diaf' => 21,
             'mesf' => 3
-        ]);*/
+        ]);
 
         DB::table('configGnrl')->insert([
             'id'=>1,

@@ -1,19 +1,29 @@
-/* JS Document */
+// Get the modal
+$(function () {
 
-/******************************
-
-[Table of Contents]
-
-1. Vars and Inits
-2. Set Header
-3. Init Menu
-4. Init Dropdown
-5. Init SVG
-6. Init Tabs
-7. Init Magic
+    $('#open').on('click',function () {
 
 
-******************************/
+        $('#exampleModal').modal('show');
+    });
+
+    $('#close').on('click',function () {
+        $('#myModal').modal('close');
+    });
+});
+function view(name){
+    //$('#myModal').modal.style.display = "block";
+    $('#imagenModal').attr('src',$('#'+name).attr('src'));
+    $('#exampleModal').modal('show');
+
+    //modalImg.src = $('#'+name).attr('src');
+
+    //captionText.innerHTML = "Test";
+}
+
+function cierra() {
+    $('#exampleModal').modal('');
+}
 
 $(document).ready(function()
 {

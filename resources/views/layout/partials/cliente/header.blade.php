@@ -7,9 +7,22 @@
                     <nav class="main_nav ml-auto mr-auto">
                         <ul class="d-flex flex-row align-items-center justify-content-start">
                             <li><a href="{{route('cliente.index')}}">Inicio</a></li>
-                            <li><a href="{{route('cliente.services')}}">Productos y Servicios</a></li>
+                            <li class="dropdown dropdown-menu-lg"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Productos y Servicios</a>
+                                <ul class="dropdown-menu" style="background: #26074D; opacity: 0.5;">
+                                    <li><a href="{{route('cliente.services',['cat' => 'rotulacion'])}}">RotulacionDigital</a></li>
+                                    <li><a href="{{route('cliente.services',['cat'=> 'senalamiento'])}}">SeñalamientoVial</a></li>
+                                    <li><a href="{{route('cliente.services',['cat'=>'estampados'])}}">EstampadosTextiles</a></li>
+                                    <li><a href="{{route('cliente.services',['cat'=>'grabados'])}}">Grabados</a></li>
+                                    <li><a href="{{route('cliente.services',['cat'=>'anuncios'])}}">Anuncios</a></li>
+                                </ul>
+                            </li>
                             <!--li><a href="{{route('cliente.services')}}">Noticias</a></li-->
-                            <li><a href="{{route('cliente.gama')}}">Gama de Colores</a></li>
+                            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Viniles</a>
+                                <ul class="animated-dropdown-menu dropdown-menu"  style="background: #26074D; opacity: 0.5;">
+                                    <li><a href="{{route('cliente.gama',["tipo"=>"adherible"])}}"><span>AutoAdheribles</span></a></li>
+                                    <li><a href="{{route('cliente.gama',["tipo"=>"textil"])}}">Textiles</a></li>
+                                </ul>
+                            </li>
                             <li><a href="{{route('cliente.portafolio')}}">Portafolio</a></li>
                             <li><a href="{{route('cliente.about')}}">Acerca de...</a></li>
                         </ul>

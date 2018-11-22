@@ -21,7 +21,7 @@
                     <div class="" style="padding-left: 20px">
                         <div class="intro_item_title">{{$product->nombre}}</div>
                         <div class="">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci assumenda autem doloribus ducimus enim eos, harum impedit in, labore laborum libero maxime nam necessitatibus, odio perferendis rem tempora veritatis voluptas.</p>
+                            <p>{{$product->desc}}</p>
                         </div>
                     </div>
                 </div>

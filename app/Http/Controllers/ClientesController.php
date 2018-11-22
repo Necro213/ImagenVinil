@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Colaborador;
 use App\EstacionConfig;
 use App\Galeria;
+use App\Gama;
 use App\GnrlConfig;
 use App\Producto;
 use App\Promocion;
@@ -25,20 +26,43 @@ class ClientesController extends Controller
             'colaboradores' => $colaboradores,'gnrl' => $gnrl]);
     }
 
-    public function services(){
+    public function services(Request $request){
 
         $estacion = $this->getEstacion();
         $gnrl = GnrlConfig::first();
-        $productos = Producto::all();
+        if($request->sub == null) {
+            $productos = Producto::where('categoria', 'ilike', $request->cat)->get();
+            $productos2 = [];
+            $token = 'nada';
 
-        return view('cliente.services',['hoy'=>$estacion,'gnrl' => $gnrl,"productos" => $productos]);
+            foreach ($productos as $producto){
+
+                if($token == $producto->subcategoria){
+                }else {
+                    $token = $producto->subcategoria;
+                    array_push($productos2,$producto);
+                }
+            }
+
+            return view('cliente.services',['hoy'=>$estacion,'gnrl' => $gnrl,"productos" => $productos2, 'v' => '1',
+                'cat'=>$request->cat]);
+
+        }else{
+            $productos = Producto::where('categoria','ilike', $request->cat)
+                ->where('subcategoria','ilike', $request->sub)
+                ->get();
+            return view('cliente.services',['hoy'=>$estacion,'gnrl' => $gnrl,"productos" => $productos,'v'=>'0',
+                'cat'=> $request->cat, 'sub' => $request->sub]);
+        }
     }
-    public function gama(){
+    public function gama(Request $request){
 
         $gnrl = GnrlConfig::first();
         $estacion = $this->getEstacion();
 
-        return view('cliente.gama',['hoy'=>$estacion,'gnrl' => $gnrl]);
+        $gama = Gama::where('tipo', 'ilike', $request->tipo)->get();
+
+        return view('cliente.gama',['hoy'=>$estacion,'gnrl' => $gnrl, "gama" => $gama]);
     }
     public function portafolio(){
         $gnrl = GnrlConfig::first();

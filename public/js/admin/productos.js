@@ -15,6 +15,8 @@ $(function() {
                 } },
             { "data": "nombre" },
             { "data": "desc" },
+            { "data": "categoria" },
+            { "data": "subcategoria" },
             { "data": function (data) {
                     str = "<div align='center'>" +
                         "<button class='btn btn-danger btn-sm' onclick='eliminar("+data.id+")'>Eliminar</button>" +
@@ -61,6 +63,46 @@ $(function() {
         }).fail(function(){
 
         });
+    });
+
+    $('#cat').on('change',function () {
+       categoria = $('#cat').val();
+        $sub = $('#scat');
+       switch (categoria) {
+           case '00':
+               clear();
+               break;
+           case 'rotulacion':
+               clear();
+               $sub.append('<option value="vehiculos">Veiculos</option>');
+               $sub.append('<option value="cristales">Cristales</option>');
+               $sub.append('<option value="tapices">Tapices</option>');
+               $sub.append('<option value="calcomanias">Calcomanias</option>');
+               $sub.append('<option value="senaleticas">Señaleticas</option>');
+               break;
+           case 'senalamiento':
+               clear();
+               $sub.append('<option value="horizontal">Horizontal</option>');
+               $sub.append('<option value="vertical">Vertical</option>');
+               break;
+           case 'estampados':
+               clear();
+               $sub.append('<option value="prendas">Prendas</option>');
+               $sub.append('<option value="gorras">Gorras</option>');
+               break;
+           case 'grabados':
+               clear();
+               $sub.append('<option value="tazas">Tazas</option>');
+               $sub.append('<option value="vidrios">Vidrios</option>');
+               break;
+           case 'anuncios':
+               clear();
+               $sub.append('<option value="liminosos">Luminosos</option>');
+               $sub.append('<option value="bastidores">Bastidores</option>');
+               $sub.append('<option value="toldos">Toldos</option>');
+               $sub.append('<option value="displays">Displays</option>');
+               break;
+       }
     });
 
     $('.image-preview').popover('hide');
@@ -121,6 +163,10 @@ $(function() {
     });
 });
 
+function clear() {
+    $('#scat option').remove();
+    $('#scat').append('<option value="00">Seleccione una SubCategoria</option>');
+}
 
 function eliminar(apikey){
     swal({
