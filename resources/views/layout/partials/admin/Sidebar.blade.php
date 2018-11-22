@@ -48,6 +48,15 @@
                 </li>
 
                 <li class="nav-item">
+                    <a href="{{route('admin.gama')}}" class="nav-link">
+                        <i class="fas fa-box"></i>
+                        <p>
+                            Gama de Colores
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
                     <a href="{{route('admin.promociones')}}" class="nav-link">
                         <i class="fas fa-percent"></i>
                         <p>
@@ -60,7 +69,7 @@
                     <a href="{{route('admin.colaboradores')}}" class="nav-link">
                         <i class="fas fa-user-friends"></i>
                         <p>
-                            Colaboradores
+                            Clientes
                         </p>
                     </a>
                 </li>

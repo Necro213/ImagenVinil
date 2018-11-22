@@ -23,7 +23,7 @@ $(document).ready(function()
 {
 	"use strict";
 
-	/* 
+	/*
 
 	1. Vars and Inits
 
@@ -59,7 +59,7 @@ $(document).ready(function()
 	initLoaders();
 	initMilestones();
 
-	/* 
+	/*
 
 	2. Set Header
 
@@ -77,7 +77,7 @@ $(document).ready(function()
 		}
 	}
 
-	/* 
+	/*
 
 	3. Init Menu
 
@@ -109,7 +109,7 @@ $(document).ready(function()
 		});
 	}
 
-	/* 
+	/*
 
 	4. Init Dropdown
 
@@ -134,7 +134,7 @@ $(document).ready(function()
 		}
 	}
 
-	/* 
+	/*
 
 	5. Init SVG
 
@@ -172,7 +172,7 @@ $(document).ready(function()
 		});
 	}
 
-	/* 
+	/*
 
 	6. Init Tabs
 
@@ -217,12 +217,12 @@ $(document).ready(function()
 		    		reverse:false
 		    	})
 		    	.setTween(TweenMax.from(ele, 0.5, {autoAlpha:0, ease: Power1.easeIn}))
-		    	.addTo(ctrl);	
+		    	.addTo(ctrl);
 	    	});
 		}
 	}
 
-	/* 
+	/*
 
 	8. Init Accordions
 
@@ -242,7 +242,7 @@ $(document).ready(function()
 				{
 					var panel = $(acc.next());
 					var panelH = panel.prop('scrollHeight') + "px";
-					
+
 					if(panel.css('max-height') == "0px")
 					{
 						panel.css('max-height', panel.prop('scrollHeight') + "px");
@@ -250,7 +250,7 @@ $(document).ready(function()
 					else
 					{
 						panel.css('max-height', "0px");
-					} 
+					}
 				}
 
 				acc.on('click', function()
@@ -260,7 +260,7 @@ $(document).ready(function()
 						acc.removeClass('active');
 						var panel = $(acc.next());
 						var panelH = panel.prop('scrollHeight') + "px";
-						
+
 						if(panel.css('max-height') == "0px")
 						{
 							panel.css('max-height', panel.prop('scrollHeight') + "px");
@@ -268,14 +268,14 @@ $(document).ready(function()
 						else
 						{
 							panel.css('max-height', "0px");
-						} 
+						}
 					}
 					else
 					{
 						acc.addClass('active');
 						var panel = $(acc.next());
 						var panelH = panel.prop('scrollHeight') + "px";
-						
+
 						if(panel.css('max-height') == "0px")
 						{
 							panel.css('max-height', panel.prop('scrollHeight') + "px");
@@ -283,14 +283,14 @@ $(document).ready(function()
 						else
 						{
 							panel.css('max-height', "0px");
-						} 
+						}
 					}
 				});
 			});
 		}
 	}
 
-	/* 
+	/*
 
 	9. Init Tabs
 
@@ -313,7 +313,7 @@ $(document).ready(function()
 		}
 	}
 
-	/* 
+	/*
 
 	10. Init Loaders
 
@@ -382,7 +382,7 @@ $(document).ready(function()
 		}
 	}
 
-	/* 
+	/*
 
 	11. Init Milestones
 
@@ -426,8 +426,8 @@ $(document).ready(function()
 		    		var counterTween = TweenMax.to(counter, 4,
 		    		{
 		    			value: endValue,
-		    			roundProps:"value", 
-						ease: Circ.easeOut, 
+		    			roundProps:"value",
+						ease: Circ.easeOut,
 						onUpdate:function()
 						{
 							document.getElementsByClassName('milestone_counter')[i].innerHTML = signBefore + counter.value + signAfter;
@@ -440,3 +440,17 @@ $(document).ready(function()
 	}
 
 });
+
+function view(name){
+    //$('#myModal').modal.style.display = "block";
+    $('#imagenModal').attr('src',$('#'+name).attr('src'));
+    $('#exampleModal').modal('show');
+
+    //modalImg.src = $('#'+name).attr('src');
+
+    //captionText.innerHTML = "Test";
+}
+
+function cierra() {
+    $('#exampleModal').modal('');
+}

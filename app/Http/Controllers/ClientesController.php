@@ -62,7 +62,7 @@ class ClientesController extends Controller
 
         $gama = Gama::where('tipo', 'ilike', $request->tipo)->get();
 
-        return view('cliente.gama',['hoy'=>$estacion,'gnrl' => $gnrl, "gama" => $gama]);
+        return view('cliente.gama',['hoy'=>$estacion,'gnrl' => $gnrl, "gama" => $gama, 'tipo' => $request->tipo]);
     }
     public function portafolio(){
         $gnrl = GnrlConfig::first();

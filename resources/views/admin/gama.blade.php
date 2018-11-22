@@ -12,12 +12,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Clientes</h1>
+                        <h1>Gama de Colores</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Home</a></li>
-                            <li class="breadcrumb-item active">Clientes</li>
+                            <li class="breadcrumb-item active">Gama de Colores</li>
                         </ol>
                     </div>
                 </div>
@@ -30,16 +30,16 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header" align="right">
-                            <button class="btn btn-success" id="addColaborador">Agregar Cliente</button>
+                            <button class="btn btn-success" id="addUser">Agregar Gama de Colores</button>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="ColaboradorTable" class="table table-bordered table-striped">
+                            <table id="gamaTable" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
                                     <th>Imagen</th>
                                     <th>Nombre</th>
-                                    <th>Sitio</th>
+                                    <th>Tipo</th>
                                     <th>Acciones</th>
                                 </tr>
                                 </thead>
@@ -57,17 +57,17 @@
         <!-- /.content -->
     </div>
 
-    <div class="modal" tabindex="-1" role="dialog" id="modalColaborador">
+    <div class="modal" tabindex="-1" role="dialog" id="modalUser">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Agregar Cliente</h5>
+                    <h5 class="modal-title">Agregar Gama de Colores</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="colaboradoresForm">
+                    <form id="galeriaForm">
                         {{csrf_field()}}
                         <div class="form-group">
                             <div class="row">
@@ -97,14 +97,18 @@
                             <br>
                             <div class="row">
                                 <label for="name">Nombre</label>
-                                <input type="text" id="name" name="name" class="form-control" placeholder="Cliente">
+                                <input type="text" id="name" name="name" class="form-control" placeholder="Nombre">
                             </div>
                             <br>
                             <div class="row">
-                                <label for="sitio">Sitio</label>
-                                <input type="text" id="sitio" name="sitio" class="form-control" placeholder="Sitio">
+                                <label for="tipo">Tipo</label>
+                                <select name="tipo" id="tipo" class="form-control">
+                                    <option value="00">Selecciona el Tipo</option>
+                                    <option value="adherible">Auto Adherible</option>
+                                    <option value="textil">Textil</option>
+                                </select>
                             </div>
-                            <br>
+
                         </div>
                     </form>
                 </div>
@@ -123,5 +127,5 @@
     <script src="{{asset('/plugins/datatables/jquery.dataTables.min.js')}}"></script>
     <script src="{{asset('/plugins/datatables/dataTables.bootstrap4.min.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.4/dist/sweetalert2.all.min.js"></script>
-    <script src="{{asset('/js/admin/colaboradores.js')}}"></script>
+    <script src="{{asset('/js/admin/gama.js')}}"></script>
 @endsection

@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col magic_fade_in">
-                <div class="section_title text-center"><h2>Nuestros Colaboradores</h2></div>
+                <div class="section_title text-center"><h2>Nuestros Clientes</h2></div>
             </div>
         </div>
         <div class="row intro_row">

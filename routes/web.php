@@ -105,10 +105,20 @@ Route::prefix('admin')->group(function (){
         'as' => 'admin.ventas'
     ]);
 
+    Route::get('/gama',[
+        'middleware' => 'sesion',
+        'uses' => 'AdminController@GamaView',
+        'as' => 'admin.gama'
+    ]);
+
     //--------------------------------------------DATA--------------------------------------------//
 
     Route::get('/users/get',[
        'uses' => 'AdminController@getUsers'
+    ]);
+
+    Route::get('/gama/get',[
+       'uses' => 'AdminController@getGama'
     ]);
 
     Route::get('/images/get',[
@@ -153,6 +163,10 @@ Route::prefix('admin')->group(function (){
        'uses' => 'AdminController@addImage'
     ]);
 
+    Route::post('/addgama',[
+       'uses' => 'AdminController@addGama'
+    ]);
+
     Route::post('/general/edit',[
        'uses' => 'AdminController@generalConfig'
     ]);
@@ -184,6 +198,10 @@ Route::prefix('admin')->group(function (){
 
     Route::delete('/image/delete/{id}',[
         'uses' => 'AdminController@deleteImg'
+    ]);
+
+    Route::delete('/gama/delete/{id}',[
+        'uses' => 'AdminController@deleteGama'
     ]);
 
     Route::delete('/colaborador/delete/{id}',[

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Colaborador;
 use App\EstacionConfig;
 use App\Galeria;
+use App\Gama;
 use App\GnrlConfig;
 use App\Producto;
 use App\Promocion;
@@ -75,6 +76,15 @@ class AdminController extends Controller
         return view('admin.galeria',['nombre'=>$user->nombre]);
     }
 
+    function GamaView(Request $request){
+
+        $cookie = $request->cookie('IEV-logged');
+
+        $user = User::where('apikey','=',$cookie)->first();
+
+        return view('admin.gama',['nombre'=>$user->nombre]);
+    }
+
     function ProductosView(Request $request){
 
         $cookie = $request->cookie('IEV-logged');
@@ -141,6 +151,15 @@ class AdminController extends Controller
 
 
             return Datatables::of(collect($users))->make(true);
+        }catch (Exception $e){
+            return Response::json($e->getMessage());
+        }
+    }
+
+    function getGama(){
+        try{
+            $gama = Gama::all();
+            return Datatables::of(collect($gama))->make(true);
         }catch (Exception $e){
             return Response::json($e->getMessage());
         }
@@ -580,6 +599,33 @@ class AdminController extends Controller
         return Response::json($respuesta);
     }
 
+    function addGama(Request $request){
+        try{
+
+            $img = $request->file('input-file-preview');
+
+            $gama = new Gama();
+
+            $gama->image = 'sn';
+            $gama->nombre = $request->name;
+            $gama->tipo = $request->tipo;
+
+            $gama->save();
+
+            $gama->image = 'G'.$gama->id.'.'.$img->getClientOriginalExtension();
+
+            $nombre = '/gama/'.'G'.$gama->id.'.'.$img->getClientOriginalExtension();
+            Storage::disk('local')->put($nombre, \File::get($img));
+            $gama->save();
+
+            $respuesta = ["code" => 200, "msg" => 'Gama guardada correctamente', "message" => "success"];
+        }catch (Exception $e) {
+            $respuesta = ["code" => 500, "msg" => $e->getMessage(), "message" => "error"];
+        }
+
+        return Response::json($respuesta);
+    }
+
     function addColaborador(Request $request){
         try{
 
@@ -599,7 +645,7 @@ class AdminController extends Controller
             Storage::disk('local')->put($nombre, \File::get($img));
             $colaborador->save();
 
-            $respuesta = ["code" => 200, "msg" => 'Imagen guardada correctamente', "message" => "success"];
+            $respuesta = ["code" => 200, "msg" => 'Cliente guardado correctamente', "message" => "success"];
         }catch (Exception $e) {
             $respuesta = ["code" => 500, "msg" => $e->getMessage(), "message" => "error"];
         }
@@ -796,6 +842,22 @@ class AdminController extends Controller
             $image = Promocion::where("id",'=', $id)->first();
 
             Storage::delete("/promociones/".$image->image);
+
+            Promocion::destroy($id);
+
+            $respuesta = ["code" => 200, "msg" => 'Eliminado correctamente', "message" => "success"];
+        }catch (Exception $e){
+            $respuesta = ["code" => 500, "msg" => $e->getMessage(), "message" => "error"];
+        }
+
+        return Response::json($respuesta);
+    }
+    
+    function deleteGama($id){
+        try{
+            $image = Gama::where("id",'=', $id)->first();
+
+            Storage::delete("/gama/".$image->image);
 
             Promocion::destroy($id);
 
