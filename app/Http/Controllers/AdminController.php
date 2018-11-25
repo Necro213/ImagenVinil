@@ -684,12 +684,7 @@ class AdminController extends Controller
 
     function generalConfig(Request $request){
         try{
-            $img = $request->file('input-file-preview');
 
-            if($img != null){
-                $nombre = '/system/gama.jpg';
-                Storage::disk('local')->put($nombre, \File::get($img));
-            }
 
             $gnrl = GnrlConfig::first();
 
@@ -705,6 +700,7 @@ class AdminController extends Controller
             $gnrl->facebook = $request->face;
             $gnrl->twitter = $request->tw;
             $gnrl->eslogan = $request->eslogan;
+            $gnrl->quienessomos = $request->quienessomos;
 
             $gnrl->save();
 
@@ -755,29 +751,29 @@ class AdminController extends Controller
             $otono = $request->file('Otono');
             $invierno = $request->file('Invierno');
 
-            if($primavera != null){
+            if($primavera != ''){
                 Storage::disk('local')->put('/system/primavera.'.$primavera->getClientOriginalExtension(), \File::get($primavera));
                 $p = EstacionConfig::where('estacion','ilike','Primavera')->first();
                 $p->image = 'primavera.'.$primavera->getClientOriginalExtension();
                 $p->save();
             }
 
-            if ($verano != null){
+            if ($verano != ''){
                 Storage::disk('local')->put('/system/verano.'.$verano->getClientOriginalExtension(), \File::get($verano));
                 $v = EstacionConfig::where('estacion','ilike','Verano')->first();
-                $v->image = 'verano.'.$primavera->getClientOriginalExtension();
+                $v->image = 'verano.'.$verano->getClientOriginalExtension();
                 $v->save();
             }
-            if ($otono != null){
+            if ($otono != ''){
                 Storage::disk('local')->put('/system/otono.'.$otono->getClientOriginalExtension(), \File::get($otono));
                 $o = EstacionConfig::where('estacion','ilike','Otono')->first();
-                $o->image = 'otono.'.$primavera->getClientOriginalExtension();
+                $o->image = 'otono.'.$otono->getClientOriginalExtension();
                 $o->save();
             }
-            if ($invierno != null){
+            if ($invierno != ''){
                 Storage::disk('local')->put('/system/invierno.'.$invierno->getClientOriginalExtension(), \File::get($invierno));
                 $i = EstacionConfig::where('estacion','ilike','Invierno')->first();
-                $i->image = 'invierno.'.$primavera->getClientOriginalExtension();
+                $i->image = 'invierno.'.$invierno->getClientOriginalExtension();
                 $i->save();
             }
 

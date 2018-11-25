@@ -17,7 +17,7 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#">Cerrar Sesion <i class="fas fa-sign-out-alt"></i></a>
+            <a class="nav-link" href="#">Cerrar Sesion<i class="fas fa-sign-out-alt"></i></a>
         </li>
     </ul>
 </nav>

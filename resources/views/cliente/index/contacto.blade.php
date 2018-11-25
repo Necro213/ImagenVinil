@@ -21,11 +21,11 @@
                     <br>
                     <label>Visitanos en nuestras Redes Sociales</label>
                     <div class="row">
-                        <div class="col-md-2">
+                        <!--div class="col-md-2">
                             <h1 style="color: #00acee">
                                 <a href="{{$gnrl->twitter}}"><i class="fab fa-twitter"></i></a>
                             </h1>
-                        </div>
+                        </div-->
 
                         <div class="col-md-2">
                             <h1 style="color: #3b5998">

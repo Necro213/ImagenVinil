@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col">
                 <div class="header_content d-flex flex-row align-items-center justify-content-start trans_400">
-                    <div class="logo"><a href="#"><img src="{{asset('/img/system/logo.png')}}" alt="" style="height: 60px; width: auto;"></a></div>
+                    <div class=""><a href="#"><img src="{{asset('/img/system/logo.png')}}" alt="" style="height: 75px; width: 230px;"></a></div>
                     <nav class="main_nav ml-auto mr-auto">
                         <ul class="d-flex flex-row align-items-center justify-content-start">
                             <li><a href="{{route('cliente.index')}}">Inicio</a></li>

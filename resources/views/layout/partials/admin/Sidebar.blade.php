@@ -49,7 +49,7 @@
 
                 <li class="nav-item">
                     <a href="{{route('admin.gama')}}" class="nav-link">
-                        <i class="fas fa-box"></i>
+                        <i class="fas fa-palette"></i>
                         <p>
                             Gama de Colores
                         </p>

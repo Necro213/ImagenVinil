@@ -12,7 +12,7 @@
                     <div class="section_title"><h2>Quienes Somos?</h2></div>
                     <hr>
                     <div class="why_text">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet consequuntur deleniti eum illum magni rerum. Aliquam aut facilis ipsa minus molestias numquam optio rerum, sequi tenetur unde velit vero.</p>
+                        <p>{{$gnrl->quienessomos}}</p>
                     </div>
                     <br>
                     <div class="why_list">
@@ -47,7 +47,7 @@
             <div class="row team_row">
 
                 <!-- Team Member -->
-                <div class="col-xl-3 col-md-6 team_col magic_fade_in">
+                <div class="col-xl-3 col-md-3 team_col magic_fade_in">
                     <div class="team_item">
                         <div class="team_image"><img src="images/team_1.jpg" alt=""></div>
                         <div class="team_content">
@@ -58,7 +58,7 @@
                 </div>
 
                 <!-- Team Member -->
-                <div class="col-xl-3 col-md-6 team_col magic_fade_in">
+                <div class="col-xl-3 col-md-3 team_col magic_fade_in">
                     <div class="team_item">
                         <div class="team_image"><img src="images/team_2.jpg" alt=""></div>
                         <div class="team_content">
@@ -69,7 +69,7 @@
                 </div>
 
                 <!-- Team Member -->
-                <div class="col-xl-3 col-md-6 team_col magic_fade_in">
+                <div class="col-xl-3 col-md-3 team_col magic_fade_in">
                     <div class="team_item">
                         <div class="team_image"><img src="images/team_3.jpg" alt=""></div>
                         <div class="team_content">
@@ -79,8 +79,35 @@
                     </div>
                 </div>
 
+
+
+            </div>
+            <div class="row team_row">
+
                 <!-- Team Member -->
-                <div class="col-xl-3 col-md-6 team_col magic_fade_in">
+                <div class="col-xl-3 col-md-3 team_col magic_fade_in">
+                    <div class="team_item">
+                        <div class="team_image"><img src="images/team_1.jpg" alt=""></div>
+                        <div class="team_content">
+                            <div class="team_name"><a href="#">Michael Smith</a></div>
+                            <div class="team_title">Administrator</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member -->
+                <div class="col-xl-3 col-md-3 team_col magic_fade_in">
+                    <div class="team_item">
+                        <div class="team_image"><img src="images/team_2.jpg" alt=""></div>
+                        <div class="team_content">
+                            <div class="team_name"><a href="#">Jane Williams</a></div>
+                            <div class="team_title">Developer</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member -->
+                <div class="col-xl-3 col-md-3 team_col magic_fade_in">
                     <div class="team_item">
                         <div class="team_image"><img src="images/team_4.jpg" alt=""></div>
                         <div class="team_content">

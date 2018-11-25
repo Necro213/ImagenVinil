@@ -9,7 +9,7 @@ class GnrlConfig extends Model
     protected $table = "configGnrl";
     public $timestamps = false;
     protected $fillable = [
-        'id','mision','vision','telefono','direccion','email','facebook','twitter','eslogan',
+        'id','mision','vision','telefono','direccion','email','facebook','twitter','eslogan','quienessomos'
     ];
     protected $hidden = [];
 }

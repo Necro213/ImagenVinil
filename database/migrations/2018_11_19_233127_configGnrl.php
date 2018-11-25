@@ -23,6 +23,7 @@ class ConfigGnrl extends Migration
            $table->string('facebook');
            $table->string('twitter');
            $table->string('eslogan');
+           $table->string('quienessomos');
         });
     }
 

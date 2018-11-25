@@ -66,6 +66,7 @@ class DatabaseSeeder extends Seeder
             'facebook'=>'facebook',
             'twitter'=>'tw',
             'eslogan'=>'eslogan',
+            'quienessomos'=>'quienes somos?',
         ]);
     }
 }
