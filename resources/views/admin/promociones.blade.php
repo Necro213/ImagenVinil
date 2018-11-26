@@ -39,7 +39,7 @@
                                 <tr>
                                     <th>Imagen</th>
                                     <th>Titulo</th>
-                                    <th>Descripcion</th>
+                                    <th>URL</th>
                                     <th>Periodo</th>
                                     <th>Acciones</th>
                                 </tr>
@@ -102,7 +102,7 @@
                             </div>
                             <br>
                             <div class="row">
-                                <label for="desc">Descripcion</label>
+                                <label for="desc">Video Aplicacion(URL)</label>
                                 <input type="text" id="desc" name="desc" class="form-control" placeholder="Descripcion">
                             </div>
                             <br>

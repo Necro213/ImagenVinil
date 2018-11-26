@@ -39,7 +39,8 @@
                                 <img class="d-block w-100" src="{{asset('img/promociones/'.$promocion->image)}}" style="height: 500px; width: auto">
                                 <div class="carousel-caption d-none d-md-block" style="background: #7B5293; opacity: 0.7;">
                                     <h3 style="color: white"><strong>{{$promocion->title}}</strong></h3>
-                                    <p style="color: white">{{$promocion->desc}}</p>
+
+                                    <p  style="color: white">Entra <a href="{{$promocion->desc}}">aqui</a> para ver aplicacion</p>
                                     <p style="color: white"><span>{{'Desde '.$promocion->desde.' hasta '.$promocion->hasta}}</span></p>
                                 </div>
                             </div>
@@ -52,7 +53,7 @@
                                 <img class="d-block w-100" src="{{asset('img/promociones/'.$promocion->image)}}" style="height: 500px; width: auto">
                                 <div class="carousel-caption d-none d-md-block" style="background: #7B5293; opacity: 0.5;">
                                     <h3 style="color: white" ><strong>{{$promocion->title}}</strong></h3>
-                                    <p style="color: white">{{$promocion->desc}}</p>
+                                    <p  style="color: white">Entra <a href="{{$promocion->desc}}">aqui</a> para ver aplicacion</p>
                                     <p style="color: white"><strong>{{'Desde '.$promocion->desde.' hasta '.$promocion->hasta}}</strong></p>
                                 </div>
                             </div>

@@ -47,34 +47,34 @@
             <div class="row team_row">
 
                 <!-- Team Member -->
-                <div class="col-xl-3 col-md-3 team_col magic_fade_in">
+                <div class="col-xl-4 col-md-4 team_col magic_fade_in">
                     <div class="team_item">
-                        <div class="team_image"><img src="images/team_1.jpg" alt=""></div>
+                        <div class="team_image"><img src="{{asset('/img/system/equipo/YOYIS.jpg')}}" alt=""></div>
                         <div class="team_content">
-                            <div class="team_name"><a href="#">Michael Smith</a></div>
-                            <div class="team_title">Administrator</div>
+                            <div class="team_name"><a href="#">Felix Zamudio</a></div>
+                            <div class="team_title">arquero_76@hotmail.com</div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Team Member -->
-                <div class="col-xl-3 col-md-3 team_col magic_fade_in">
+                <div class="col-xl-4 col-md-4 team_col magic_fade_in">
                     <div class="team_item">
-                        <div class="team_image"><img src="images/team_2.jpg" alt=""></div>
+                        <div class="team_image"><img src="{{asset('/img/system/equipo/CRISTIAN.jpg')}}" alt=""></div>
                         <div class="team_content">
-                            <div class="team_name"><a href="#">Jane Williams</a></div>
-                            <div class="team_title">Developer</div>
+                            <div class="team_name"><a href="#">Cristian Zamudio</a></div>
+                            <div class="team_title">imagen_vinil@hotmail.com</div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Team Member -->
-                <div class="col-xl-3 col-md-3 team_col magic_fade_in">
+                <div class="col-xl-4 col-md-4 team_col magic_fade_in">
                     <div class="team_item">
-                        <div class="team_image"><img src="images/team_3.jpg" alt=""></div>
+                        <div class="team_image"><img src="{{asset('/img/system/equipo/CRISTINA.jpg')}}" alt=""></div>
                         <div class="team_content">
-                            <div class="team_name"><a href="#">Claudia Parker</a></div>
-                            <div class="team_title">Developer</div>
+                            <div class="team_name"><a href="#">Cristina Zamudio</a></div>
+                            <div class="team_title">becriza@hotmail.com</div>
                         </div>
                     </div>
                 </div>
@@ -85,34 +85,34 @@
             <div class="row team_row">
 
                 <!-- Team Member -->
-                <div class="col-xl-3 col-md-3 team_col magic_fade_in">
+                <div class="col-xl-4 col-md-4 team_col magic_fade_in">
                     <div class="team_item">
-                        <div class="team_image"><img src="images/team_1.jpg" alt=""></div>
+                        <div class="team_image"><img src="{{asset('/img/system/equipo/YAZ.jpg')}}" alt=""></div>
                         <div class="team_content">
-                            <div class="team_name"><a href="#">Michael Smith</a></div>
-                            <div class="team_title">Administrator</div>
+                            <div class="team_name"><a href="#">Yazmin Valdes</a></div>
+                            <div class="team_title">yazminvaldes_938@msn.com</div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Team Member -->
-                <div class="col-xl-3 col-md-3 team_col magic_fade_in">
+                <div class="col-xl-4 col-md-4 team_col magic_fade_in">
                     <div class="team_item">
-                        <div class="team_image"><img src="images/team_2.jpg" alt=""></div>
+                        <div class="team_image"><img src="{{asset('/img/system/equipo/CHRISTIAN.jpg')}}" alt=""></div>
                         <div class="team_content">
-                            <div class="team_name"><a href="#">Jane Williams</a></div>
-                            <div class="team_title">Developer</div>
+                            <div class="team_name"><a href="#">Christian Gameros</a></div>
+                            <div class="team_title"></div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Team Member -->
-                <div class="col-xl-3 col-md-3 team_col magic_fade_in">
+                <div class="col-xl-4 col-md-4 team_col magic_fade_in">
                     <div class="team_item">
-                        <div class="team_image"><img src="images/team_4.jpg" alt=""></div>
+                        <div class="team_image"><img src="{{asset('/img/system/equipo/CARLOS.jpg')}}" alt=""></div>
                         <div class="team_content">
-                            <div class="team_name"><a href="#">James Black</a></div>
-                            <div class="team_title">Designer</div>
+                            <div class="team_name"><a href="#">Carlos de Leon</a></div>
+                            <div class="team_title">carlzamudio@gmail.com</div>
                         </div>
                     </div>
                 </div>

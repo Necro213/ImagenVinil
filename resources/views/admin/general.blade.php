@@ -87,6 +87,7 @@
                                         <textarea name="quienessomos" id="quienessomos" cols="30" rows="10" class="form-control">{{$gnrl->quienessomos}}</textarea>
                                     </div>
                                 </div>
+
                             </form>
                             <hr>
                             <div align="right">

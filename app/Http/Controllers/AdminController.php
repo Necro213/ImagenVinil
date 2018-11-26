@@ -143,6 +143,11 @@ class AdminController extends Controller
 
         return view('admin.ventas',['nombre'=>$user->nombre,'products' => $productos]);
     }
+
+    function logout(Request $request){
+
+        return redirect('/admin/login')->withCookie(Cookie::forget('IEV-logged'));
+    }
     //----------------------------------------------Data--------------------------------------------
 
     function getUsers(){

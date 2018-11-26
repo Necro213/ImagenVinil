@@ -16,10 +16,10 @@ class ClientesController extends Controller
 {
     
     public function index(){
-
+        $hoy = date('Y-m-j');
         $estacion = $this->getEstacion();
         $productos = Producto::inRandomOrder()->paginate(3);
-        $promociones = Promocion::all();
+        $promociones = Promocion::where('desde','<=',$hoy)->where('hasta','>=',$hoy)->get();
         $colaboradores = Colaborador::all();
         $gnrl = GnrlConfig::first();
         return view('cliente.index',['hoy'=>$estacion,'products' => $productos,'promociones'=>$promociones,

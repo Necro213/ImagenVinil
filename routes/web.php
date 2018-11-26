@@ -51,6 +51,12 @@ Route::prefix('admin')->group(function (){
         'as' => 'admin.login'
     ]);
 
+    Route::get('/logout',[
+        'uses'=> 'AdminController@logout',
+        'as' => 'admin.logout'
+    ]);
+
+
     Route::get('/users',[
         'middleware' => 'sesion',
         'uses' => 'AdminController@UsersView',
